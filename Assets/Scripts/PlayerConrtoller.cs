@@ -4,40 +4,37 @@ public class PlayerConrtoller : MonoBehaviour
 {
     private Animator anim = null;
     private Transform tr = null;
+    private GameObject go = null;
 
     private float mouseX = 0;
 
     private float mouseSensitivity = 5f;
 
 
-    private void Awake()
+    private void Start()
     {
         anim = GetComponent<Animator>();
         tr = GetComponent<Transform>();
+        go = GetComponent<GameObject>();
     }
 
     private void Update()
     {
-        float axisV = Input.GetAxis("Vertical");
-        float axisH = Input.GetAxis("Horizontal");
+        PlayerMove();
 
-        anim.SetFloat("Forward", axisV);
-        anim.SetFloat("Backward", -axisV);
-        anim.SetFloat("Left", axisH);
-        anim.SetFloat("Right", -axisH);
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            anim.SetBool("Strafe", true);
-        }
-        else
-        {
-            anim.SetBool("Strafe", false);
-        }
-
+        // 마우스 수평축 움직임
         if (InputMouse(ref mouseX))
         {
             InputMouseProcess(mouseX);
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            anim.SetBool("Fire", true);
+        }
+        else if (Input.GetMouseButton(1))
+        {
+            anim.SetBool("Fire", false);
         }
     }
 
@@ -56,5 +53,25 @@ public class PlayerConrtoller : MonoBehaviour
     {
         tr.rotation =
             Quaternion.Euler(0f, _mouseX, 0f);
+    }
+
+    private void PlayerMove()
+    {
+        float axisV = Input.GetAxis("Vertical");
+        float axisH = Input.GetAxis("Horizontal");
+
+        anim.SetFloat("Forward", axisV);
+        anim.SetFloat("Backward", -axisV);
+        anim.SetFloat("Left", -axisH);
+        anim.SetFloat("Right", axisH);
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            anim.SetBool("Sprint", true);
+        }
+        else
+        {
+            anim.SetBool("Sprint", false);
+        }
     }
 }
