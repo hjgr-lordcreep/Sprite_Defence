@@ -7,8 +7,9 @@ public class PlayerConrtoller : MonoBehaviour
     private GameObject go = null;
 
     private float mouseX = 0;
-
     private float mouseSensitivity = 5f;
+
+    public MuzzleController muzzleController;
 
 
     private void Start()
@@ -28,13 +29,16 @@ public class PlayerConrtoller : MonoBehaviour
             InputMouseProcess(mouseX);
         }
 
+        // 마우스 왼쪽 버튼으로 총 발사
         if (Input.GetMouseButton(0))
         {
             anim.SetBool("Fire", true);
+            muzzleController.SetFlicker(true);
         }
-        else if (Input.GetMouseButton(1))
+        else
         {
             anim.SetBool("Fire", false);
+            muzzleController.SetFlicker(false);
         }
     }
 
