@@ -66,11 +66,11 @@ public class UIManager : MonoBehaviour
         timeText.text = "Time : " + surviveTime.ToString("F1");
         
 
-        if (surviveTime > 5)
-        {
-            isLive = false;
-            GameOver();
-        }
+        //if (surviveTime > 5)
+        //{
+        //    isLive = false;
+        //    GameOver();
+        //}
         
         
 
