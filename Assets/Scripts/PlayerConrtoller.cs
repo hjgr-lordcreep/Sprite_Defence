@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerConrtoller : MonoBehaviour
 {
@@ -9,8 +10,12 @@ public class PlayerConrtoller : MonoBehaviour
     private float mouseX = 0;
     private float mouseSensitivity = 5f;
 
-    public MuzzleController muzzleController;
-
+    [SerializeField]
+    private MuzzleController muzzleController;
+    [SerializeField]
+    private Transform gunTransform;
+    [SerializeField]
+    private Transform target;
 
     private void Start()
     {
@@ -39,6 +44,15 @@ public class PlayerConrtoller : MonoBehaviour
         {
             anim.SetBool("Fire", false);
             muzzleController.SetFlicker(false);
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (gunTransform != null && target != null)
+        {
+            gunTransform.LookAt(target);
+            gunTransform.Rotate(0f, 90f, 0f);
         }
     }
 
