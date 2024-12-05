@@ -57,7 +57,7 @@ public class Zombie : LivingEntity
         }
 
         OnZombieDisabled?.Invoke();
-        targetEntity = null;
+        //targetEntity = null;
     }
 
     // 추적할 대상이 존재하는지 알려주는 프로퍼티
@@ -129,7 +129,6 @@ public class Zombie : LivingEntity
         // 살아있는 동안 무한 루프
         while (!IsDead)
         {
-            Debug.Log(targetEntity);
             if (hasTarget)
             {
                 // 추적 대상 존재 : 경로를 갱신하고 AI 이동을 계속 진행

@@ -49,7 +49,7 @@ public class ZombieManager : MonoBehaviour
     private void IncrementZombieCount()
     {
         ActiveZombieCount++;
-        Debug.Log("Active Zombies: " + ActiveZombieCount);
+        //Debug.Log("Active Zombies: " + ActiveZombieCount);
     }
 
     // 액티브 좀비 카운트 감소 함수
@@ -57,7 +57,7 @@ public class ZombieManager : MonoBehaviour
     {
         // 액티브 좀비 카운트가 0이하로 내려가지 않음
         ActiveZombieCount = Mathf.Max(0, ActiveZombieCount - 1);
-        Debug.Log("Active Zombies: " + ActiveZombieCount);
+        //Debug.Log("Active Zombies: " + ActiveZombieCount);
     }
 
 
@@ -73,7 +73,7 @@ public class ZombieManager : MonoBehaviour
         //timer += Time.deltaTime;
         ZombieClean();
 
-        if (ActiveZombieCount < MaxSpawnCount / 3 && activeCoroutine == false)
+        if (ActiveZombieCount < MaxSpawnCount / 3.0f && activeCoroutine == false)
         {
             activeCoroutine = true;
             InitWeights(); // 가중치 초기화 함수 호출
@@ -211,8 +211,6 @@ public class ZombieManager : MonoBehaviour
             {
                 zombie.Die();
                 //--activeZombie;
-                if (ActiveZombieCount <= 5)
-                    break;
             }
         }
     }
