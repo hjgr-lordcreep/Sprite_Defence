@@ -1,22 +1,27 @@
 using System.Collections;
 using TMPro;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance;
+    public int kill;
+
     public GameObject startGameUI;
     public GameObject inGameUI;
     public GameObject endGameUI;
 
-
+    public TextMeshProUGUI killText;
     public TextMeshProUGUI timeText;
     private float surviveTime;
     private bool isLive;
 
     private void Awake()
     {
+        instance = this;
         isLive = false;
 
     }
@@ -64,7 +69,7 @@ public class UIManager : MonoBehaviour
         
         surviveTime += Time.deltaTime;
         timeText.text = "Time : " + surviveTime.ToString("F1");
-        
+        killText.text = "Kill: " + kill.ToString();
 
         //if (surviveTime > 5)
         //{

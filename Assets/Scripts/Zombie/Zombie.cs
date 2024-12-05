@@ -195,7 +195,7 @@ public class Zombie : LivingEntity
     {
         // LivingEntity의 Die()를 실행하여 기본 사망 처리 실행
         base.Die();
-
+        UIManager.instance.kill++;
         // 다른 AI들을 방해하지 않도록 자신의 모든 콜라이더들을 비활성화
         //Collider[] zombieColliders = GetComponents<Collider>();
         //for (int i = 0; i < zombieColliders.Length; i++)

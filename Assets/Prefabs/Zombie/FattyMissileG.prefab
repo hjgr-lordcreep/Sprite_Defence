@@ -254,8 +254,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   turnHead: {fileID: 6303924697027082840}
   attackDist: 15
-  attackDamage: 20
-  shootCoolDown: 0.5
+  attackDamage: 50
+  shootCoolDown: 0.2
   checkTargetTime: 0.1
   lockSpeed: 100
   randomRot: {x: 0, y: 0, z: 0}
