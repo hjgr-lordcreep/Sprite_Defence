@@ -123,7 +123,8 @@ public class TurretAI : MonoBehaviour {
         }
         else
         {
-            turreyHead.transform.rotation = Quaternion.RotateTowards(turreyHead.rotation, Quaternion.LookRotation(targetDir), lockSpeed * Time.deltaTime);
+            turreyHead.forward = targetDir;
+            //turreyHead.transform.rotation = Quaternion.RotateTowards(turreyHead.rotation, Quaternion.LookRotation(targetDir), lockSpeed * Time.deltaTime);
         }
     }
 
@@ -196,7 +197,11 @@ public class TurretAI : MonoBehaviour {
             }
             else
             {
-                InstantProjectile().target = transform.GetComponent<TurretAI>().currentTarget.transform;
+                Instantiate(muzzleEff, muzzleSub.transform.position, muzzleSub.rotation);
+                GameObject missleGo = Instantiate(bullet, muzzleSub.transform.position, muzzleSub.rotation);
+                missleGo.transform.SetParent(transform);
+                Projectile projectile = missleGo.GetComponent<Projectile>();
+                projectile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
             }
 
             shootLeft = !shootLeft;
