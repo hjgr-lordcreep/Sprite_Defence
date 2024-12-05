@@ -161,7 +161,7 @@ MonoBehaviour:
   turretAI: {fileID: 0}
   target: {fileID: 0}
   lockOn: 0
-  speed: 50
+  speed: 5
   turnSpeed: 5
   catapult: 0
   knockBack: 1.5

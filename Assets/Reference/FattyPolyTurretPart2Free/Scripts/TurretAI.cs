@@ -12,7 +12,7 @@ public class TurretAI : MonoBehaviour {
     }
 
     public GameObject currentTarget;
-    public Transform turreyHead;
+    public Transform turnHead;
 
     public float attackDist = 10.0f;
     public float attackDamage;
@@ -150,26 +150,26 @@ public class TurretAI : MonoBehaviour {
                     distAway = dist;
                 }
             }
-            else
-            {
-                currentTarget = null;
-            }
+            //else
+            //{
+            //    currentTarget = null;
+            //}
         }
     }
 
     private void FollowTarget() //todo : smooth rotate
     {
-        Vector3 targetDir = currentTarget.transform.position - turreyHead.position;
-        targetDir.y = 0;
-        //turreyHead.forward = targetDir;
+        Vector3 targetDir = currentTarget.transform.position - turnHead.position;
+        //targetDir.y = 0;
+        //turnHead.forward = targetDir;
         if (turretType == TurretType.Single)
         {
-            turreyHead.forward = targetDir;
+            turnHead.forward = targetDir;
         }
         else
         {
-            turreyHead.forward = targetDir;
-            //turreyHead.transform.rotation = Quaternion.RotateTowards(turreyHead.rotation, Quaternion.LookRotation(targetDir), lockSpeed * Time.deltaTime);
+            turnHead.forward = targetDir;
+            //turnHead.transform.rotation = Quaternion.RotateTowards(turnHead.rotation, Quaternion.LookRotation(targetDir), lockSpeed * Time.deltaTime);
         }
     }
 
@@ -209,9 +209,9 @@ public class TurretAI : MonoBehaviour {
     {
         bool refreshRandom = false;
 
-        if (turreyHead.rotation != Quaternion.Euler(randomRot))
+        if (turnHead.rotation != Quaternion.Euler(randomRot))
         {
-            turreyHead.rotation = Quaternion.RotateTowards(turreyHead.transform.rotation, Quaternion.Euler(randomRot), lockSpeed * Time.deltaTime * 0.2f);
+            turnHead.rotation = Quaternion.RotateTowards(turnHead.transform.rotation, Quaternion.Euler(randomRot), lockSpeed * Time.deltaTime * 0.2f);
         }
         else
         {
