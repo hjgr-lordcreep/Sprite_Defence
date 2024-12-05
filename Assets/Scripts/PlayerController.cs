@@ -1,27 +1,22 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerConrtoller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Animator anim = null;
     private Transform tr = null;
-    private GameObject go = null;
 
     private float mouseX = 0;
     private float mouseSensitivity = 5f;
 
     [SerializeField]
     private MuzzleController muzzleController;
-    [SerializeField]
-    private Transform gunTransform;
-    [SerializeField]
-    private Transform target;
+
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         tr = GetComponent<Transform>();
-        go = GetComponent<GameObject>();
     }
 
     private void Update()
@@ -44,15 +39,6 @@ public class PlayerConrtoller : MonoBehaviour
         {
             anim.SetBool("Fire", false);
             muzzleController.SetFlicker(false);
-        }
-    }
-
-    private void LateUpdate()
-    {
-        if (gunTransform != null && target != null)
-        {
-            gunTransform.LookAt(target);
-            gunTransform.Rotate(0f, 90f, 0f);
         }
     }
 
