@@ -65,8 +65,8 @@ public class PlayerConrtoller : MonoBehaviour
         float axisH = Input.GetAxis("Horizontal");
 
         anim.SetFloat("Forward", axisV);
-        anim.SetFloat("Backward", -axisV);
-        anim.SetFloat("Left", -axisH);
+        //anim.SetFloat("Backward", -axisV);
+        //anim.SetFloat("Left", -axisH);
         anim.SetFloat("Right", axisH);
 
         if (Input.GetKey(KeyCode.LeftShift))
