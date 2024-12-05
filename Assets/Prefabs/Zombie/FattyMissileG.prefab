@@ -252,12 +252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
-  turreyHead: {fileID: 7361911493456274615}
+  turnHead: {fileID: 6303924697027082840}
   attackDist: 15
   attackDamage: 20
-  shootCoolDown: 0.1
-  checkTargetTime: 0.01
-  lockSpeed: 200
+  shootCoolDown: 0.5
+  checkTargetTime: 0.1
+  lockSpeed: 100
   randomRot: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   turretType: 2
