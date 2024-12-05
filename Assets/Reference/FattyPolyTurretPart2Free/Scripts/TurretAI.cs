@@ -42,6 +42,7 @@ public class TurretAI : MonoBehaviour {
     public float AttackDamage { get { return attackDamage; } }
 
     void Start() {
+        StartCoroutine(TargetBehaviorCoroutine());
         InvokeRepeating("CheckForTarget", 0, checkTargetTime);
         //shotScript = GetComponent<TurretShoot_Base>();
 
@@ -53,39 +54,83 @@ public class TurretAI : MonoBehaviour {
         randomRot = new Vector3(0, Random.Range(0, 359), 0);
     }
 
-    void Update() {
-        if (currentTarget != null)
-        {
-            FollowTarget();
+    //void Update() {
+    //    if (currentTarget != null)
+    //    {
+    //        FollowTarget();
 
-            float currentTargetDist = Vector3.Distance(transform.position, currentTarget.transform.position);
-            if (currentTargetDist > attackDist)
-            {
-                currentTarget = null;
-            }
-        }
-        else
-        {
-            IdleRitate();
-        }
+    //        float currentTargetDist = Vector3.Distance(transform.position, currentTarget.transform.position);
+    //        if (currentTargetDist > attackDist)
+    //        {
+    //            currentTarget = null;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        IdleRitate();
+    //    }
 
-        timer += Time.deltaTime;
-        if (timer >= shootCoolDown)
+    //    timer += Time.deltaTime;
+    //    if (timer >= shootCoolDown)
+    //    {
+    //        if (currentTarget != null)
+    //        {
+    //            timer = 0;
+
+    //            if (animator != null)
+    //            {
+    //                animator.SetTrigger("Fire");
+    //                ShootTrigger();
+    //            }
+    //            else
+    //            {
+    //                ShootTrigger();
+    //            }
+    //        }
+    //    }
+    //}
+
+    private IEnumerator TargetBehaviorCoroutine()
+    {
+        while (true)
         {
             if (currentTarget != null)
             {
-                timer = 0;
+                FollowTarget();
 
-                if (animator != null)
+                float currentTargetDist = Vector3.Distance(transform.position, currentTarget.transform.position);
+                if (currentTargetDist > attackDist)
                 {
-                    animator.SetTrigger("Fire");
-                    ShootTrigger();
-                }
-                else
-                {
-                    ShootTrigger();
+                    currentTarget = null;
                 }
             }
+            else
+            {
+                IdleRitate();
+            }
+
+            // 쿨다운 시간 계산
+            timer += Time.deltaTime;
+            if (timer >= shootCoolDown)
+            {
+                if (currentTarget != null)
+                {
+                    timer = 0;
+
+                    if (animator != null)
+                    {
+                        animator.SetTrigger("Fire");
+                        ShootTrigger();
+                    }
+                    else
+                    {
+                        ShootTrigger();
+                    }
+                }
+            }
+
+            // 코루틴은 일정 시간마다 실행되므로, 0.1초 정도의 대기 시간을 넣어주면 성능이 향상될 수 있음
+            yield return null;  // 이 줄을 사용하면 매 프레임마다 코루틴이 실행됩니다.
         }
     }
 
