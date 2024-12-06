@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
 
 public class Fortress : LivingEntity
 {
     [SerializeField]
     private FortressData fortressData = null;
-    public override float startingHealth { get; set; }
-    public override float health { get; set; }
+    protected override float startingHealth { get; set; }
+    protected override float health { get; set; }
     protected override void OnEnable()
     {
         IsDead = true;
