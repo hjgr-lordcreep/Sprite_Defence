@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     public GameObject inGameUI;
     public GameObject endGameUI;
 
+    public Slider fortressHP;
+    private Fortress fortress;
+
     public TextMeshProUGUI killText;
     public TextMeshProUGUI timeText;
     private float surviveTime;
@@ -70,6 +73,10 @@ public class UIManager : MonoBehaviour
         surviveTime += Time.deltaTime;
         timeText.text = "Time : " + surviveTime.ToString("F1");
         killText.text = "Kill: " + kill.ToString();
+
+        //fortressHP.value = fortress.health / fortress.startingHealth;
+
+        Debug.Log(fortress.health);
 
         //if (surviveTime > 5)
         //{
