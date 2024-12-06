@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Zombie
   - ZombieInfo
+  - Fortress
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - Zombie
   - Player
-  - 
-  - 
+  - Fortress
+  - Damage
   - 
   - 
   - 

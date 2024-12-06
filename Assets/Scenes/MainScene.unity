@@ -835,6 +835,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 251021968606900625, guid: 9b9833bde10ea1f4b9ccc57e32b080ea, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 251021968606900625, guid: 9b9833bde10ea1f4b9ccc57e32b080ea, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -3337,6 +3341,14 @@ PrefabInstance:
     - target: {fileID: 1894562017156119464, guid: d7b2f824c236e3341b28504dbb221d0e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945001192052043549, guid: d7b2f824c236e3341b28504dbb221d0e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945001192052043549, guid: d7b2f824c236e3341b28504dbb221d0e, type: 3}
+      propertyPath: m_TagString
+      value: Fortress
       objectReference: {fileID: 0}
     - target: {fileID: 3367155866420059254, guid: d7b2f824c236e3341b28504dbb221d0e, type: 3}
       propertyPath: m_LocalPosition.x
