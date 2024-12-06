@@ -11,6 +11,7 @@ public class WASDMovement : LivingEntity {
     private Vector3 moveVec = Vector3.zero;
     private float haxis;
     private float vaxis;
+    private float rotationSpeed = 5f;
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class WASDMovement : LivingEntity {
     }
 
 
-    void FixedUpdate () {
+    private void Update () {
         //Vector3 pos = transform.position;
 
         if (gun != null && Input.GetMouseButton(0))
@@ -29,28 +30,45 @@ public class WASDMovement : LivingEntity {
         haxis = Input.GetAxis("Horizontal");
         vaxis = Input.GetAxis("Vertical");
 
-        moveVec = new Vector3(haxis, 0, vaxis).normalized;
-        transform.position += moveVec * speed * Time.deltaTime;
 
-        transform.LookAt(transform.position + moveVec);
 
-        //if (Input.GetKey ("w")) {
-        //    pos.z += speed * Time.deltaTime;
-        //}
+        // 마우스 왼쪽 버튼 클릭 감지
+        if (Input.GetMouseButton(0))
+        {
+            // 클릭한 화면 좌표를 월드 좌표로 변환
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hitInfo))
+            {
+                // 클릭한 위치로 캐릭터 회전
+                RotateTowards(hitInfo.point);
+                moveVec = new Vector3(haxis, 0, vaxis).normalized;
+                transform.position += moveVec * speed * Time.deltaTime;
+            }
+        }
+        else
+        {
+            moveVec = new Vector3(haxis, 0, vaxis).normalized;
+            transform.position += moveVec * speed * Time.deltaTime;
 
-        //if (Input.GetKey ("s")) {
-        //    pos.z -= speed * Time.deltaTime;
-        //}
+            transform.LookAt(transform.position + moveVec);
+        }
+    }
 
-        //if (Input.GetKey ("d")) {
-        //    pos.x += speed * Time.deltaTime;
-        //}
+    private void RotateTowards(Vector3 targetPosition)
+    {
+        // 클릭한 위치와 캐릭터의 높이 맞추기
+        targetPosition.y = transform.position.y;
 
-        //if (Input.GetKey ("a")) {
-        //    pos.x -= speed * Time.deltaTime;
-        //}
-         
-        // transform.position = pos;
+        // 목표 방향 계산
+        Vector3 direction = (targetPosition - transform.position).normalized;
+
+        // 목표 회전값 계산
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        // 현재 회전값에서 목표 회전값으로 보간하여 회전
+        //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        transform.rotation = targetRotation;
     }
 
     public override void OnDamage(float damage, Vector3 hitPoint,
