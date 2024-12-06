@@ -9,11 +9,4 @@ public class Fortress : LivingEntity
         startingHealth = fortressData.health;
         base.OnEnable();
     }
-
-    private void Update()
-    {
-
-        Debug.Log(health);
-
-    }
 }
