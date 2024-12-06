@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,8 +15,8 @@ public class UIManager : MonoBehaviour
     public GameObject inGameUI;
     public GameObject endGameUI;
 
-    public Slider fortressHP;
-    public Fortress fortress;
+    public Slider fortressSlider;
+    public Fortress fortressHP;
 
     private float hpValueRatio;
 
@@ -76,11 +77,13 @@ public class UIManager : MonoBehaviour
         timeText.text = "Time : " + surviveTime.ToString("F1");
         killText.text = "Kill: " + kill.ToString();
 
-        hpValueRatio = fortress.health / fortress.startingHealth;
+        hpValueRatio = fortressHP.health / fortressHP.startingHealth;
 
-        fortressHP.value = hpValueRatio;
+        //fortressSlider.value = hpValueRatio;
+        fortressSlider.value = Mathf.Lerp(0, 1, hpValueRatio);
 
-        Debug.Log(fortress.health);
+        Debug.Log(fortressHP.health);
+        Debug.Log(hpValueRatio);
 
         //if (surviveTime > 5)
         //{
