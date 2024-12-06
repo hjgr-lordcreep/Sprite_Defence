@@ -17,8 +17,8 @@ public class Gun : MonoBehaviour
 
     public Transform fireTransform; // 총알이 발사될 위치
 
-    //[SerializeField]
-    //private ParticleSystem muzzleFlashEffect; // 총구 화염 효과
+    [SerializeField]
+    private ParticleSystem muzzleFlashEffect; // 총구 화염 효과
     //public ParticleSystem shellEjectEffect; // 탄피 배출 효과
 
     private LineRenderer bulletLineRenderer; // 총알 궤적을 그리기 위한 렌더러
@@ -26,6 +26,8 @@ public class Gun : MonoBehaviour
     //private AudioSource gunAudioPlayer; // 총 소리 재생기
 
     public GunData gunData; // 총의 현재 데이터
+
+    public Light muzzleLight = null;
 
     [SerializeField]
     private float fireDistance = 50f; // 사정거리
@@ -137,7 +139,8 @@ public class Gun : MonoBehaviour
     private IEnumerator ShotEffect(Vector3 hitPosition)
     {
         //// 총구 화염 효과 재생
-        //muzzleFlashEffect.Play();
+        muzzleFlashEffect.Play();
+        muzzleLight.enabled = true;
         //// 탄피 배출 효과 재생
         //shellEjectEffect.Play();
 
@@ -157,6 +160,7 @@ public class Gun : MonoBehaviour
         // 라인 렌더러를 비활성화하여 총알 궤적을 지운다
         bulletLineRenderer.enabled = false;
         StopAllCoroutines();
+        muzzleLight.enabled = false;
     }
 
     //// 재장전 시도
