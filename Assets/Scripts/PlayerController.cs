@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     private float mouseX = 0;
     private float mouseSensitivity = 5f;
 
-    [SerializeField]
-    private MuzzleController muzzleController;
+    //[SerializeField]
+    //private MuzzleController muzzleController;
     //[SerializeField]
     //private Transform target;
     //[SerializeField]
@@ -37,12 +37,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             anim.SetBool("Fire", true);
-            muzzleController.SetFlicker(true);
+            //muzzleController.SetFlicker(true);
         }
         else
         {
             anim.SetBool("Fire", false);
-            muzzleController.SetFlicker(false);
+            //muzzleController.SetFlicker(false);
         }
     }
    //private void LateUpdate()

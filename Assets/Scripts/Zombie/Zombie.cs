@@ -145,16 +145,24 @@ public class Zombie : LivingEntity
                 // 단, whatIsTarget 레이어를 가진 콜라이더만 가져오도록 필터링
                 Collider[] colliders =
                     Physics.OverlapSphere(transform.position, senseRange, whatIsTarget);
+                float distAway = Mathf.Infinity;
+                LivingEntity livingEntity = null;
 
                 // 모든 콜라이더들을 순회하면서, 살아있는 LivingEntity 찾기
                 for (int i = 0; i < colliders.Length; i++)
                 {
+                    float dist = Vector3.Distance(transform.position, colliders[i].transform.position);
+                    if (dist < distAway)
+                    {
+                        livingEntity = colliders[i].GetComponent<LivingEntity>();
+                        distAway = dist;
+                    }
                     // 콜라이더로부터 LivingEntity 컴포넌트 가져오기
-                    LivingEntity livingEntity = colliders[i].GetComponent<LivingEntity>();
 
                     // LivingEntity 컴포넌트가 존재하며, 해당 LivingEntity가 살아있다면,
                     if (livingEntity != null && !livingEntity.IsDead)
                     {
+
                         // 추적 대상을 해당 LivingEntity로 설정
                         targetEntity = livingEntity;
 
@@ -195,7 +203,7 @@ public class Zombie : LivingEntity
     {
         // LivingEntity의 Die()를 실행하여 기본 사망 처리 실행
         base.Die();
-        UIManager.instance.kill++;
+        //UIManager.instance.kill++;
         // 다른 AI들을 방해하지 않도록 자신의 모든 콜라이더들을 비활성화
         //Collider[] zombieColliders = GetComponents<Collider>();
         //for (int i = 0; i < zombieColliders.Length; i++)
