@@ -5,8 +5,10 @@ public class Fortress : LivingEntity
 {
     [SerializeField]
     private FortressData fortressData = null;
-    protected override float startingHealth { get; set; }
-    protected override float health { get; set; }
+    [field: NonSerialized]
+    public override float startingHealth { get; set; }
+    [field: NonSerialized]
+    public override float health { get; set; }
     protected override void OnEnable()
     {
         IsDead = true;
@@ -15,11 +17,6 @@ public class Fortress : LivingEntity
         //health = startingHealth;
         //base.OnEnable();
     }
-
-    //private void Update()
-    //{
-    //    Debug.Log(health);
-    //}
 
 
 }
