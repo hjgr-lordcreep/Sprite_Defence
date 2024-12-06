@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
     public Slider fortressHP;
     public Fortress fortress;
 
+    private float hpValueRatio;
+
     public TextMeshProUGUI killText;
     public TextMeshProUGUI timeText;
     private float surviveTime;
@@ -74,17 +76,19 @@ public class UIManager : MonoBehaviour
         timeText.text = "Time : " + surviveTime.ToString("F1");
         killText.text = "Kill: " + kill.ToString();
 
-        //fortressHP.value = fortress.health / fortress.startingHealth;
+        hpValueRatio = fortress.health / fortress.startingHealth;
 
-        //Debug.Log(fortress.health);
+        fortressHP.value = hpValueRatio;
+
+        Debug.Log(fortress.health);
 
         //if (surviveTime > 5)
         //{
         //    isLive = false;
         //    GameOver();
         //}
-        
-        
+
+
 
         //µð¹ö±ë¿ë
         if (Input.GetKeyDown(KeyCode.F10))

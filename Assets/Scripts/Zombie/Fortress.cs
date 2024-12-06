@@ -14,10 +14,10 @@ public class Fortress : LivingEntity
         //base.OnEnable();
     }
 
-    private void Update()
-    {
-        Debug.Log(health);
-    }
+    //private void Update()
+    //{
+    //    Debug.Log(health);
+    //}
 
 
 }
