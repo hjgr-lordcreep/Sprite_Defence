@@ -4,8 +4,9 @@ public class Fortress : LivingEntity
 {
     [SerializeField]
     private FortressData fortressData = null;
-    public void Setup(FortressData Fortressdata)
+    protected override void OnEnable()
     {
-        startingHealth = Fortressdata.health;
+        startingHealth = fortressData.health;
+        base.OnEnable();
     }
 }
