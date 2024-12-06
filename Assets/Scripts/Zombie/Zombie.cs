@@ -124,60 +124,114 @@ public class Zombie : LivingEntity
         //zombieAnimator.SetBool("HasTarget", hasTarget);
     }
 
-    // 주기적으로 추적할 대상의 위치를 찾아 경로를 갱신
+
     private IEnumerator UpdatePath()
     {
-        // 살아있는 동안 무한 루프
         while (!IsDead)
         {
+            // 가장 가까운 LivingEntity를 찾기 위한 변수 초기화
+            float closestDistance = Mathf.Infinity;
+            LivingEntity closestLiving = null;
+
+            // 주변 콜라이더 탐색
+            Collider[] colliders = Physics.OverlapSphere(transform.position, senseRange, whatIsTarget);
+
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                // Fortress 또는 Player 태그가 아니면 건너뜀
+                if (!colliders[i].CompareTag("Fortress") && !colliders[i].CompareTag("Player"))
+                    continue;
+
+                // LivingEntity 컴포넌트 가져오기
+                LivingEntity livingEntity = colliders[i].GetComponent<LivingEntity>();
+
+                // 살아 있는 엔티티인지 확인
+                if (livingEntity != null && !livingEntity.IsDead)
+                {
+                    // 현재 엔티티와의 거리 계산
+                    float distance = Vector3.Distance(transform.position, colliders[i].transform.position);
+
+                    // 더 가까운 LivingEntity를 발견하면 갱신
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestLiving = livingEntity;
+                    }
+                }
+            }
+
+            // 가장 가까운 LivingEntity를 새로운 추적 대상으로 설정
+            targetEntity = closestLiving; // targetEntity 갱신
+
+            // 추적 대상이 존재하면 계속 추적
             if (hasTarget)
             {
-                // 추적 대상 존재 : 경로를 갱신하고 AI 이동을 계속 진행
                 navMeshAgent.isStopped = false;
-                navMeshAgent.SetDestination(
-                    targetEntity.transform.position);
+                navMeshAgent.SetDestination(targetEntity.transform.position);
             }
             else
             {
-                // 추적 대상 없음 : AI 이동 중지
-                navMeshAgent.isStopped = true;
-
-                // 20 유닛의 반지름을 가진 가상의 구를 그렸을때, 구와 겹치는 모든 콜라이더를 가져옴
-                // 단, whatIsTarget 레이어를 가진 콜라이더만 가져오도록 필터링
-                Collider[] colliders =
-                    Physics.OverlapSphere(transform.position, senseRange, whatIsTarget);
-                float distAway = Mathf.Infinity;
-                LivingEntity closestLiving = null;
-
-                // 모든 콜라이더들을 순회하면서, 살아있는 LivingEntity 찾기
-                for (int i = 0; i < colliders.Length; i++)
-                {
-                    if (!colliders[i].CompareTag("Zombie") && !colliders[i].CompareTag("Player"))
-                    {
-                        continue;
-                    }
-                    LivingEntity livingEntity = colliders[i].GetComponent<LivingEntity>();
-                    if (livingEntity != null && !livingEntity.IsDead)
-                    {
-                        float dist = Vector3.Distance(transform.position, colliders[i].transform.position);
-                        if (dist < distAway)
-                        {
-                            distAway = dist;
-                            closestLiving = livingEntity;
-                        }
-                    }
-                }
-
-                if (closestLiving != null) 
-                {
-                    targetEntity = closestLiving;
-                }
+                navMeshAgent.isStopped = true; // 이동 중지
             }
 
-            // 0.25초 주기로 처리 반복
+            // 0.25초 주기로 반복
             yield return new WaitForSeconds(0.25f);
         }
     }
+    // 주기적으로 추적할 대상의 위치를 찾아 경로를 갱신
+    //private IEnumerator UpdatePath()
+    //{
+    //    // 살아있는 동안 무한 루프
+    //    while (!IsDead)
+    //    {
+    //        if (hasTarget)
+    //        {
+    //            // 추적 대상 존재 : 경로를 갱신하고 AI 이동을 계속 진행
+    //            navMeshAgent.isStopped = false;
+    //            navMeshAgent.SetDestination(
+    //                targetEntity.transform.position);
+    //        }
+    //        else
+    //        {
+    //            // 추적 대상 없음 : AI 이동 중지
+    //            navMeshAgent.isStopped = true;
+
+    //            // 20 유닛의 반지름을 가진 가상의 구를 그렸을때, 구와 겹치는 모든 콜라이더를 가져옴
+    //            // 단, whatIsTarget 레이어를 가진 콜라이더만 가져오도록 필터링
+    //            Collider[] colliders =
+    //                Physics.OverlapSphere(transform.position, senseRange, whatIsTarget);
+    //            float distAway = Mathf.Infinity;
+    //            LivingEntity closestLiving = null;
+
+    //            // 모든 콜라이더들을 순회하면서, 살아있는 LivingEntity 찾기
+    //            for (int i = 0; i < colliders.Length; i++)
+    //            {
+    //                if (!colliders[i].CompareTag("Fortress") && !colliders[i].CompareTag("Player"))
+    //                {
+    //                    continue;
+    //                }
+    //                LivingEntity livingEntity = colliders[i].GetComponent<LivingEntity>();
+    //                if (livingEntity != null && !livingEntity.IsDead)
+    //                {
+    //                    float dist = Vector3.Distance(transform.position, colliders[i].transform.position);
+    //                    if (dist < distAway)
+    //                    {
+    //                        distAway = dist;
+    //                        closestLiving = livingEntity;
+    //                    }
+    //                }
+    //            }
+
+    //            if (closestLiving != null) 
+    //            {
+    //                targetEntity = closestLiving;
+    //            }
+    //        }
+
+    //        // 0.25초 주기로 처리 반복
+    //        yield return new WaitForSeconds(0.25f);
+    //    }
+    //}
 
     // 데미지를 입었을때 실행할 처리
     public override void OnDamage(float damage,
