@@ -5,6 +5,11 @@ using UnityEngine.AI; // AI, 내비게이션 시스템 관련 코드를 가져오기
 // 좀비 AI 구현
 public class Zombie : LivingEntity
 {
+    //[SerializeField]
+    //private GameObject hpBarPrefab = null;
+    //private HpBar hpBar = null;
+    //private LivingEntity zombieHealth = null;
+
     public LayerMask whatIsTarget; // 추적 대상 레이어
 
     private LivingEntity targetEntity; // 추적할 대상
@@ -92,6 +97,15 @@ public class Zombie : LivingEntity
 
     public void Init(Vector3 _pos)
     {
+        //GameObject hpBarGo = Instantiate(hpBarPrefab);
+        //GameObject monsterInfoGo =
+        //    GameObject.FindGameObjectWithTag("Zombie");
+        //hpBarGo.transform.SetParent(monsterInfoGo.transform);
+        //hpBar = hpBarGo.GetComponent<HpBar>();
+        //hpBar.UpdateHp(zombieHealth.health, zombieHealth.startingHealth);
+        //hpBar.UpdatePosition(transform.position);
+
+
         transform.position = _pos;
 
         gameObject.SetActive(true);

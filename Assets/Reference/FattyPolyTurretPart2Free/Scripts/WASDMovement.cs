@@ -8,37 +8,49 @@ public class WASDMovement : LivingEntity {
     private Gun gun = null;
 
 	public float speed = 20f;
+    private Vector3 moveVec = Vector3.zero;
+    private float haxis;
+    private float vaxis;
 
     private void Awake()
     {
         gun = GetComponentInChildren<Gun>();
     }
 
+
     void FixedUpdate () {
-        Vector3 pos = transform.position;
+        //Vector3 pos = transform.position;
 
         if (gun != null && Input.GetMouseButton(0))
         {
             gun.Fire();
         }
 
-        if (Input.GetKey ("w")) {
-            pos.z += speed * Time.deltaTime;
-        }
+        haxis = Input.GetAxis("Horizontal");
+        vaxis = Input.GetAxis("Vertical");
 
-        if (Input.GetKey ("s")) {
-            pos.z -= speed * Time.deltaTime;
-        }
+        moveVec = new Vector3(haxis, 0, vaxis).normalized;
+        transform.position += moveVec * speed * Time.deltaTime;
 
-        if (Input.GetKey ("d")) {
-            pos.x += speed * Time.deltaTime;
-        }
+        transform.LookAt(transform.position + moveVec);
 
-        if (Input.GetKey ("a")) {
-            pos.x -= speed * Time.deltaTime;
-        }
+        //if (Input.GetKey ("w")) {
+        //    pos.z += speed * Time.deltaTime;
+        //}
+
+        //if (Input.GetKey ("s")) {
+        //    pos.z -= speed * Time.deltaTime;
+        //}
+
+        //if (Input.GetKey ("d")) {
+        //    pos.x += speed * Time.deltaTime;
+        //}
+
+        //if (Input.GetKey ("a")) {
+        //    pos.x -= speed * Time.deltaTime;
+        //}
          
-         transform.position = pos;
+        // transform.position = pos;
     }
 
     public override void OnDamage(float damage, Vector3 hitPoint,

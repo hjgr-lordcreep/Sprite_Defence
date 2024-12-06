@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  hpBarPrefab: {fileID: 8140038622611474062, guid: fce301b5c97b89342a05dddb35e7b43a, type: 3}
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
