@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private MuzzleController muzzleController;
+    //[SerializeField]
+    //private Transform target;
+    //[SerializeField]
+    //private Transform gunObject;
 
 
     private void Start()
@@ -41,8 +45,16 @@ public class PlayerController : MonoBehaviour
             muzzleController.SetFlicker(false);
         }
     }
+   //private void LateUpdate()
+   //{
+   //    if (gunObject != null && target != null)
+   //    {
+   //        gunObject.LookAt(transform.position);
+   //    }
+   //}
 
-    private bool InputMouse(ref float _mouseX)
+
+        private bool InputMouse(ref float _mouseX)
     {
         float mX = Input.GetAxis("Mouse X");
         float mY = Input.GetAxis("Mouse Y");
@@ -83,4 +95,18 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Sprint", false);
         }
     }
+
+   //private void OnAnimatorIK(int layerIndex)
+   //{
+   //    anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 1f);
+   //    anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 1f);
+   //
+   //    anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1f);
+   //    anim.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1f);
+   //
+   //    anim.SetIKPosition(AvatarIKGoal.RightHand, gunObject.position);
+   //    anim.SetIKRotation(AvatarIKGoal.RightHand, gunObject.rotation);
+   //
+   //    gunObject.LookAt(target);
+   //}
 }
