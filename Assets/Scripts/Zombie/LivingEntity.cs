@@ -5,7 +5,7 @@ using UnityEngine;
 // 체력, 데미지 받아들이기, 사망 기능, 사망 이벤트를 제공
 public class LivingEntity : MonoBehaviour, IDamageable {
     public float startingHealth = 100; // 시작 체력
-    public float health { get; set; } // 현재 체력
+    public virtual float health { get; set; } // 현재 체력
     public bool IsDead { get { return !gameObject.activeSelf; } set { gameObject.SetActive(value); } } // 사망 상태
     //public event Action onDeath; // 사망시 발동할 이벤트
 
