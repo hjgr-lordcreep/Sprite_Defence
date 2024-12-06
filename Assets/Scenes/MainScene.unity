@@ -1908,6 +1908,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1150917559}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &885644225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1945001192052043549, guid: d7b2f824c236e3341b28504dbb221d0e, type: 3}
+  m_PrefabInstance: {fileID: 2042254918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &885644227
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885644225}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 24, y: 2, z: 24}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &885644228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885644225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f5d5e75128c7b4888ac52af27d08da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  fortressData: {fileID: 11400000, guid: 720d5a6f633bfb347a42b2fc47769274, type: 2}
 --- !u!1 &999077204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3365,7 +3405,13 @@ PrefabInstance:
     - {fileID: 7103428702697261488, guid: d7b2f824c236e3341b28504dbb221d0e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1945001192052043549, guid: d7b2f824c236e3341b28504dbb221d0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 885644228}
+    - targetCorrespondingSourceObject: {fileID: 1945001192052043549, guid: d7b2f824c236e3341b28504dbb221d0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 885644227}
   m_SourcePrefab: {fileID: 100100000, guid: d7b2f824c236e3341b28504dbb221d0e, type: 3}
 --- !u!1 &2091675731
 GameObject:

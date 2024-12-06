@@ -17,8 +17,8 @@ public class Gun : MonoBehaviour
 
     public Transform fireTransform; // 총알이 발사될 위치
 
-    [SerializeField]
-    private ParticleSystem muzzleFlashEffect; // 총구 화염 효과
+    //[SerializeField]
+    //private ParticleSystem muzzleFlashEffect; // 총구 화염 효과
     //public ParticleSystem shellEjectEffect; // 탄피 배출 효과
 
     private LineRenderer bulletLineRenderer; // 총알 궤적을 그리기 위한 렌더러
@@ -137,7 +137,7 @@ public class Gun : MonoBehaviour
     private IEnumerator ShotEffect(Vector3 hitPosition)
     {
         //// 총구 화염 효과 재생
-        muzzleFlashEffect.Play();
+        //muzzleFlashEffect.Play();
         //// 탄피 배출 효과 재생
         //shellEjectEffect.Play();
 
