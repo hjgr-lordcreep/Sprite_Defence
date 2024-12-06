@@ -102,7 +102,7 @@ public class Gun : MonoBehaviour
             Debug.Log(hit.collider.name);
 
             // 상대방으로 부터 IDamageable 오브젝트를 가져오는데 성공했다면
-            if (target != null)
+            if (target != null && !hit.collider.CompareTag("Fortress"))
             {
                 // 상대방의 OnDamage 함수를 실행시켜서 상대방에게 데미지 주기
                 target.OnDamage(gunData.damage, hit.point, hit.normal);
