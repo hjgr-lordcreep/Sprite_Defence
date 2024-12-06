@@ -165,29 +165,30 @@ public class Zombie : LivingEntity
                 Collider[] colliders =
                     Physics.OverlapSphere(transform.position, senseRange, whatIsTarget);
                 float distAway = Mathf.Infinity;
-                LivingEntity livingEntity = null;
+                LivingEntity closestLiving = null;
 
                 // 모든 콜라이더들을 순회하면서, 살아있는 LivingEntity 찾기
                 for (int i = 0; i < colliders.Length; i++)
                 {
-                    float dist = Vector3.Distance(transform.position, colliders[i].transform.position);
-                    if (dist < distAway)
+                    if (!colliders[i].CompareTag("Zombie") && !colliders[i].CompareTag("Player"))
                     {
-                        livingEntity = colliders[i].GetComponent<LivingEntity>();
-                        distAway = dist;
+                        continue;
                     }
-                    // 콜라이더로부터 LivingEntity 컴포넌트 가져오기
-
-                    // LivingEntity 컴포넌트가 존재하며, 해당 LivingEntity가 살아있다면,
+                    LivingEntity livingEntity = colliders[i].GetComponent<LivingEntity>();
                     if (livingEntity != null && !livingEntity.IsDead)
                     {
-
-                        // 추적 대상을 해당 LivingEntity로 설정
-                        targetEntity = livingEntity;
-
-                        // for문 루프 즉시 정지
-                        break;
+                        float dist = Vector3.Distance(transform.position, colliders[i].transform.position);
+                        if (dist < distAway)
+                        {
+                            distAway = dist;
+                            closestLiving = livingEntity;
+                        }
                     }
+                }
+
+                if (closestLiving != null) 
+                {
+                    targetEntity = closestLiving;
                 }
             }
 
