@@ -1,27 +1,26 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerConrtoller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Animator anim = null;
     private Transform tr = null;
-    private GameObject go = null;
 
     private float mouseX = 0;
     private float mouseSensitivity = 5f;
 
     [SerializeField]
     private MuzzleController muzzleController;
-    [SerializeField]
-    private Transform gunTransform;
-    [SerializeField]
-    private Transform target;
+    //[SerializeField]
+    //private Transform target;
+    //[SerializeField]
+    //private Transform gunObject;
+
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         tr = GetComponent<Transform>();
-        go = GetComponent<GameObject>();
     }
 
     private void Update()
@@ -46,17 +45,16 @@ public class PlayerConrtoller : MonoBehaviour
             muzzleController.SetFlicker(false);
         }
     }
+   //private void LateUpdate()
+   //{
+   //    if (gunObject != null && target != null)
+   //    {
+   //        gunObject.LookAt(transform.position);
+   //    }
+   //}
 
-    private void LateUpdate()
-    {
-        if (gunTransform != null && target != null)
-        {
-            gunTransform.LookAt(target);
-            gunTransform.Rotate(0f, 90f, 0f);
-        }
-    }
 
-    private bool InputMouse(ref float _mouseX)
+        private bool InputMouse(ref float _mouseX)
     {
         float mX = Input.GetAxis("Mouse X");
         float mY = Input.GetAxis("Mouse Y");
@@ -97,4 +95,18 @@ public class PlayerConrtoller : MonoBehaviour
             anim.SetBool("Sprint", false);
         }
     }
+
+   //private void OnAnimatorIK(int layerIndex)
+   //{
+   //    anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 1f);
+   //    anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 1f);
+   //
+   //    anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1f);
+   //    anim.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1f);
+   //
+   //    anim.SetIKPosition(AvatarIKGoal.RightHand, gunObject.position);
+   //    anim.SetIKRotation(AvatarIKGoal.RightHand, gunObject.rotation);
+   //
+   //    gunObject.LookAt(target);
+   //}
 }
