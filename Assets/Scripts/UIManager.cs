@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject player;
+
     public static UIManager instance;
     public int kill;
     public int money;
@@ -31,7 +33,7 @@ public class UIManager : MonoBehaviour
     {
         instance = this;
         isLive = false;
-
+        player.gameObject.SetActive(false);
     }
 
 
@@ -42,8 +44,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         inGameUI.gameObject.SetActive(true);
         isLive = true;
-
-
+        player.gameObject.SetActive(true);
     }
 
     public void GameOver()
