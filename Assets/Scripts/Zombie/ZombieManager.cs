@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZombieManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject zombiePrefab = null;
+    private List<GameObject> zombiePrefabs = null;
 
     [SerializeField]
     private List<Zombie> zombieList = null;
@@ -183,7 +183,9 @@ public class ZombieManager : MonoBehaviour
 
     private Zombie SpawnZombie(Vector3 _pos)
     {
-        GameObject zombieGo = Instantiate(zombiePrefab, _pos, Quaternion.identity, transform);
+        GameObject randomZombiePrefab = zombiePrefabs[Random.Range(0, zombiePrefabs.Count)];
+
+        GameObject zombieGo = Instantiate(randomZombiePrefab, _pos, Quaternion.identity, transform);
 
         return zombieGo.GetComponent<Zombie>();
     }
