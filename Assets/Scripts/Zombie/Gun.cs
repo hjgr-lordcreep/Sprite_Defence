@@ -106,6 +106,7 @@ public class Gun : MonoBehaviour
             {
                 // 상대방의 OnDamage 함수를 실행시켜서 상대방에게 데미지 주기
                 target.OnDamage(gunData.damage, hit.point, hit.normal);
+
             }
             else
             {

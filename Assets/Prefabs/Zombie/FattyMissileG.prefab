@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1903107529970885295}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -214,6 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1903107529970885295}
   - component: {fileID: 5990797234418974562}
+  - component: {fileID: 9152374239866863035}
   m_Layer: 0
   m_Name: FattyMissileG
   m_TagString: Untagged
@@ -237,6 +238,7 @@ Transform:
   - {fileID: 7361911493456274615}
   - {fileID: 7756710120924865382}
   - {fileID: 5811187171088139559}
+  - {fileID: 3546976113681292930}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5990797234418974562
@@ -258,6 +260,8 @@ MonoBehaviour:
   shootCoolDown: 0.2
   checkTargetTime: 0.1
   lockSpeed: 100
+  checkTargetTr: {fileID: 3546976113681292930}
+  rangeTr: {fileID: 5811187171088139559}
   randomRot: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   turretType: 2
@@ -265,6 +269,53 @@ MonoBehaviour:
   muzzleSub: {fileID: 2838119814878454584}
   muzzleEff: {fileID: 1497772684437746, guid: bd75ef4ae186f454a90b2de71bed2854, type: 3}
   bullet: {fileID: 1773485284122676, guid: 9e0d59e1858a95d4aafcfc9ef7e94671, type: 3}
+--- !u!114 &9152374239866863035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828588054873430692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c898b816b31e5a4990f5e44ef35224a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTr: {fileID: 0}
+  upgradeCanvas: {fileID: 0}
+  dis: 5
+  upAtkDmg: 5
+--- !u!1 &972572590789148377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3546976113681292930}
+  m_Layer: 0
+  m_Name: CheckTargetPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3546976113681292930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972572590789148377}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1903107529970885295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1952492515939928199
 GameObject:
   m_ObjectHideFlags: 0

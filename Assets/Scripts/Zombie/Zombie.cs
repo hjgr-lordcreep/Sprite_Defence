@@ -21,8 +21,11 @@ public class Zombie : LivingEntity
     //private AudioSource zombieAudioPlayer; // 오디오 소스 컴포넌트
     //private Renderer zombieRenderer; // 렌더러 컴포넌트
 
-    public float senseRange = 100f;
-    public float damage = 20f; // 공격력
+
+    public ZombieData zombieData = null;
+
+    private float senseRange; // 인식 범위
+    private float damage; // 공격력
     public float timeBetAttack = 0.5f; // 공격 간격
     private float lastAttackTime; // 마지막 공격 시점
 
@@ -40,6 +43,7 @@ public class Zombie : LivingEntity
         base.OnEnable();
         OnZombieEnabled?.Invoke();
 
+        Setup(zombieData);
         // 코루틴이 이미 실행 중이면 중지
         if (pathCoroutine != null)
         {
@@ -111,6 +115,8 @@ public class Zombie : LivingEntity
         damage = zombieData.damage;
         // 내비메시 에이전트의 이동 속도 설정
         navMeshAgent.speed = zombieData.speed;
+        // 인식 범위 설정
+        senseRange = zombieData.senseRange;
         // 렌더러가 사용중인 머테리얼의 컬러를 변경, 외형 색이 변함
         //zombieRenderer.material.color = zombieData.skinColor;
     }
