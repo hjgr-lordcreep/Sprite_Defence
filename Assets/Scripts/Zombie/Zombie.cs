@@ -6,7 +6,7 @@ using UnityEngine.AI; // AI, 내비게이션 시스템 관련 코드를 가져오기
 // 좀비 AI 구현
 public class Zombie : LivingEntity
 {
-    public GameObject coin;
+    public GameObject coin = null;
 
     public LayerMask whatIsTarget; // 추적 대상 레이어
 
