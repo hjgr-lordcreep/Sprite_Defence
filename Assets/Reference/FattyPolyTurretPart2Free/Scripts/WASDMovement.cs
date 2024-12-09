@@ -6,6 +6,7 @@ using UnityEngine;
 public class WASDMovement : LivingEntity {
 
     private Gun gun = null;
+    private Animator anim = null;
 
 	public float speed = 20f;
     private Vector3 moveVec = Vector3.zero;
@@ -18,8 +19,17 @@ public class WASDMovement : LivingEntity {
         gun = GetComponentInChildren<Gun>();
     }
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
 
     private void Update () {
+
+        // 애니메이션 처리
+        PlayAnimation();
+
         //Vector3 pos = transform.position;
 
         if (gun != null && Input.GetMouseButton(0))
@@ -49,25 +59,34 @@ public class WASDMovement : LivingEntity {
         {
             moveVec = new Vector3(haxis, 0, vaxis).normalized;
             transform.position += moveVec * speed * Time.deltaTime;
-
+        
             transform.LookAt(transform.position + moveVec);
         }
+    }
+
+    private void PlayAnimation()
+    {
+        anim.SetFloat("Forward", vaxis);
+        anim.SetFloat("Right", haxis);
+
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        anim.SetBool("Sprint", isSprinting);
     }
 
     private void RotateTowards(Vector3 targetPosition)
     {
         // 클릭한 위치와 캐릭터의 높이 맞추기
         targetPosition.y = transform.position.y;
-
+    
         // 목표 방향 계산
         Vector3 direction = (targetPosition - transform.position).normalized;
-
+    
         // 목표 회전값 계산
         Quaternion targetRotation = Quaternion.LookRotation(direction);
-
+    
         // 현재 회전값에서 목표 회전값으로 보간하여 회전
         //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
+    
         transform.rotation = targetRotation;
     }
 

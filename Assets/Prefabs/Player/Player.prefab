@@ -177,7 +177,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2cf8ada8650fd1b42bb7723cf5fceaae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -252,8 +252,8 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 1
-    textureScale: {x: 0.5, y: 0.5}
+    textureMode: 0
+    textureScale: {x: 0.5, y: 1.5}
     shadowBias: 0.5
     generateLightingData: 0
   m_MaskInteraction: 0
