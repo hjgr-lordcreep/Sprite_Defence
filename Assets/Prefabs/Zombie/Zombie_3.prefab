@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8c8fc8124afc44b56365fb2e37238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: {fileID: 0}
+  coin: {fileID: 4436162982857671193, guid: d2dcffec4aa63d540bd0e17d6e9bb408, type: 3}
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 512

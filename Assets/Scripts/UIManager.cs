@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
     {
         isLive = false;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         inGameUI.gameObject.SetActive(false);
         endGameUI.gameObject.SetActive(true);

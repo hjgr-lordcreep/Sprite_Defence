@@ -2226,7 +2226,7 @@ GameObject:
   - component: {fileID: 6901768407851223395}
   - component: {fileID: 5703994239630253374}
   m_Layer: 6
-  m_Name: Zombie
+  m_Name: Zombie_1
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2275,7 +2275,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d404c51d269dea14ab042911acc13bcb, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -2341,12 +2341,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8c8fc8124afc44b56365fb2e37238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coin: {fileID: 4436162982857671193, guid: d2dcffec4aa63d540bd0e17d6e9bb408, type: 3}
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 512
   zombieData: {fileID: 11400000, guid: cce332805e1549441b79a83f0ced1ebc, type: 2}
-  senseRange: 100
-  damage: 100
   timeBetAttack: 0.5
 --- !u!54 &5703994239630253374
 Rigidbody:
