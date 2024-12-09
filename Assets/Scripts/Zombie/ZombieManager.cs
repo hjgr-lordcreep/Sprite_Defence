@@ -73,13 +73,17 @@ public class ZombieManager : MonoBehaviour
         //timer += Time.deltaTime;
         ZombieClean();
 
-        if (ActiveZombieCount < MaxSpawnCount / 3.0f && activeCoroutine == false)
+        if(UIManager.instance.isLive)
         {
-            activeCoroutine = true;
-            InitWeights(); // 가중치 초기화 함수 호출
-            asd = PoolingCoroutine();
-            StartCoroutine(asd);
-            //StartCoroutine(PoolingCoroutine());
+            if (ActiveZombieCount < MaxSpawnCount / 3.0f && activeCoroutine == false)
+            {
+                activeCoroutine = true;
+                InitWeights(); // 가중치 초기화 함수 호출
+                asd = PoolingCoroutine();
+                StartCoroutine(asd);
+                //StartCoroutine(PoolingCoroutine());
+            }
+
         }
 
     }

@@ -775,6 +775,8 @@ GameObject:
   - component: {fileID: 8821081299160499238}
   - component: {fileID: 8889143439706793022}
   - component: {fileID: -1653025389397499172}
+  - component: {fileID: 3570702588659160502}
+  - component: {fileID: 1629773301831904908}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -896,7 +898,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3713e3482c84de04aa6840e5d571a6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 10
+--- !u!114 &3570702588659160502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954237457775794595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95bf2b7ee5791e4e8f861d8fe5bd389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1629773301831904908
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954237457775794595}
+  serializedVersion: 4
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1971117199572612476
 GameObject:
   m_ObjectHideFlags: 0

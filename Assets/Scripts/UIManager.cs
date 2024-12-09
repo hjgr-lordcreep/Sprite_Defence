@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     public int kill;
+    public int money;
 
     public GameObject startGameUI;
     public GameObject inGameUI;
@@ -20,10 +21,11 @@ public class UIManager : MonoBehaviour
 
     private float hpValueRatio;
 
+    public TextMeshProUGUI moneyText;
     public TextMeshProUGUI killText;
     public TextMeshProUGUI timeText;
     private float surviveTime;
-    private bool isLive;
+    public bool isLive;
 
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class UIManager : MonoBehaviour
         inGameUI.gameObject.SetActive(true);
         isLive = true;
 
+
     }
 
     public void GameOver()
@@ -53,7 +56,7 @@ public class UIManager : MonoBehaviour
     {
         isLive = false;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         inGameUI.gameObject.SetActive(false);
         endGameUI.gameObject.SetActive(true);
@@ -68,6 +71,11 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
+    public void FortressHPUpdate()
+    {
+        hpValueRatio = fortressHP.health / fortressHP.startingHealth;
+        fortressSlider.value = Mathf.Lerp(0, 1, hpValueRatio);
+    }
 
     private void Update()
     {
@@ -75,15 +83,15 @@ public class UIManager : MonoBehaviour
         
         surviveTime += Time.deltaTime;
         timeText.text = "Time : " + surviveTime.ToString("F1");
-        killText.text = "Kill: " + kill.ToString();
+        //killText.text = "Kill: " + kill.ToString();
+        //moneyText.text = "money: " + money.ToString();
 
-        hpValueRatio = fortressHP.health / fortressHP.startingHealth;
+        
+        //hpValueRatio = fortressHP.health / fortressHP.startingHealth;
+        //fortressSlider.value = Mathf.Lerp(0, 1, hpValueRatio);
 
-        //fortressSlider.value = hpValueRatio;
-        fortressSlider.value = Mathf.Lerp(0, 1, hpValueRatio);
-
-        Debug.Log(fortressHP.health);
-        Debug.Log(hpValueRatio);
+        //Debug.Log(fortressHP.health);
+        //Debug.Log(hpValueRatio);
 
         //if (surviveTime > 5)
         //{

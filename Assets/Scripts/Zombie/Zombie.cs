@@ -1,10 +1,13 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI; // AI, 내비게이션 시스템 관련 코드를 가져오기
 
 // 좀비 AI 구현
 public class Zombie : LivingEntity
 {
+    public GameObject coin;
+
     public LayerMask whatIsTarget; // 추적 대상 레이어
 
     private LivingEntity targetEntity; // 추적할 대상
@@ -259,7 +262,10 @@ public class Zombie : LivingEntity
     {
         // LivingEntity의 Die()를 실행하여 기본 사망 처리 실행
         base.Die();
-        //UIManager.instance.kill++;
+        UIManager.instance.kill++;
+        UIManager.instance.killText.text = "Kill: " + UIManager.instance.kill.ToString();
+        Instantiate(coin, transform.position, Quaternion.identity);
+
         // 다른 AI들을 방해하지 않도록 자신의 모든 콜라이더들을 비활성화
         //Collider[] zombieColliders = GetComponents<Collider>();
         //for (int i = 0; i < zombieColliders.Length; i++)
@@ -301,6 +307,9 @@ public class Zombie : LivingEntity
 
                 // 공격 실행
                 attackTarget.OnDamage(damage, hitPoint, hitNormal);
+                
+                // UI업데이트, 기지체력
+                UIManager.instance.FortressHPUpdate();
             }
         }
     }

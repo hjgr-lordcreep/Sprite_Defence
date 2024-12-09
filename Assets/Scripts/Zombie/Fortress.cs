@@ -18,5 +18,10 @@ public class Fortress : LivingEntity
         //base.OnEnable();
     }
 
+    public override void Die()
+    {
+        UIManager.instance.GameOver();
+
+    }
 
 }
