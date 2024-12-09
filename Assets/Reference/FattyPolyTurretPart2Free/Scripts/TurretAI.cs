@@ -98,7 +98,8 @@ public class TurretAI : MonoBehaviour {
 
     private void CheckForTarget()
     {
-        Collider[] colls = Physics.OverlapSphere(checkTargetTr.position, attackDist, 1 << LayerMask.NameToLayer("Zombie"));
+        //Collider[] colls = Physics.OverlapSphere(checkTargetTr.position, attackDist, 1 << LayerMask.NameToLayer("Zombie"));
+        Collider[] colls = Physics.OverlapCapsule(checkTargetTr.position, Vector3.zero, attackDist, 1 << LayerMask.NameToLayer("Zombie"));
         float distAway = Mathf.Infinity;
 
         for (int i = 0; i < colls.Length; i++)
