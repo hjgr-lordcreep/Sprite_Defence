@@ -18,6 +18,9 @@ public class ZombieManager : MonoBehaviour
     private int lowWeightValue = 10; // 낮은 가중치 값
     [SerializeField]
     private float spawntime = 0.1f;
+    [SerializeField]
+    private float spawnRange = 5f;
+
 
     private IEnumerator asd = null;
     private bool activeCoroutine = false;
@@ -177,8 +180,10 @@ public class ZombieManager : MonoBehaviour
                 break;
             }
         }
-
-        return spawnPoints[selectedIndex].position;
+        float x = spawnPoints[selectedIndex].position.x + Random.insideUnitCircle.x * spawnRange;
+        float z = spawnPoints[selectedIndex].position.z + Random.insideUnitCircle.y * spawnRange;
+        Vector3 randomspawn = new Vector3(x, spawnPoints[selectedIndex].position.y, z);
+        return randomspawn;
     }
 
     private Zombie SpawnZombie(Vector3 _pos)
@@ -210,7 +215,6 @@ public class ZombieManager : MonoBehaviour
             foreach (Zombie zombie in zombieList)
             {
                 zombie.Die();
-                //--activeZombie;
             }
         }
     }

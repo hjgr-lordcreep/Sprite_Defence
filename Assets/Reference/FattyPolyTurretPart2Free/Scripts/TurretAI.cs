@@ -39,7 +39,7 @@ public class TurretAI : MonoBehaviour {
 
     //public TurretShoot_Base shotScript;
 
-    public float AttackDamage { get { return attackDamage; } }
+    public float AttackDamage { get { return attackDamage; } set { attackDamage = value; } }
 
     void Start() {
         InvokeRepeating("CheckForTarget", 0, checkTargetTime);
