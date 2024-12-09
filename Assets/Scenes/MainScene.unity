@@ -1969,6 +1969,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4771368802304592180, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
   m_PrefabInstance: {fileID: 2061621655}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &865255759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1954237457775794595, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
+  m_PrefabInstance: {fileID: 2061621655}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &885644225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1945001192052043549, guid: d7b2f824c236e3341b28504dbb221d0e, type: 3}
@@ -3107,6 +3112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef51a07336acd6b458cebd5616d515f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 865255759}
   kill: 0
   money: 0
   startGameUI: {fileID: 68791358}
