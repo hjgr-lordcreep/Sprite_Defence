@@ -134,7 +134,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &8520117205869482206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,13 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8c8fc8124afc44b56365fb2e37238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
-  hpBarPrefab: {fileID: 8140038622611474062, guid: fce301b5c97b89342a05dddb35e7b43a, type: 3}
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 512
-  senseRange: 100
-  damage: 100
+  zombieData: {fileID: 0}
   timeBetAttack: 0.5
 --- !u!54 &8400147516384905570
 Rigidbody:

@@ -21,6 +21,8 @@ public class TurretAI : MonoBehaviour {
     private float timer;
     [SerializeField]
     private float lockSpeed;
+    public Transform checkTargetTr = null;
+    public Transform rangeTr = null;
 
     //public Quaternion randomRot;
     public Vector3 randomRot;
@@ -40,6 +42,11 @@ public class TurretAI : MonoBehaviour {
     //public TurretShoot_Base shotScript;
 
     public float AttackDamage { get { return attackDamage; } set { attackDamage = value; } }
+
+    private void OnEnable()
+    {
+        rangeTr.localScale = new Vector3(attackDist * 2, attackDist * 2, attackDist * 2);
+    }
 
     void Start() {
         InvokeRepeating("CheckForTarget", 0, checkTargetTime);
@@ -91,14 +98,14 @@ public class TurretAI : MonoBehaviour {
 
     private void CheckForTarget()
     {
-        Collider[] colls = Physics.OverlapSphere(transform.position, attackDist);
+        Collider[] colls = Physics.OverlapSphere(checkTargetTr.position, attackDist, 1 << LayerMask.NameToLayer("Zombie"));
         float distAway = Mathf.Infinity;
 
         for (int i = 0; i < colls.Length; i++)
         {
-            if (colls[i].tag == "Zombie" && colls[i].gameObject.activeSelf)
+            if (/*colls[i].tag == "Zombie" && */colls[i].gameObject.activeSelf)
             {
-                float dist = Vector3.Distance(transform.position, colls[i].transform.position);
+                float dist = Vector3.Distance(checkTargetTr.position, colls[i].transform.position);
                 if (dist < distAway)
                 {
                     currentTarget = colls[i].gameObject;

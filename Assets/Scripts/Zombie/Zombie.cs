@@ -112,6 +112,8 @@ public class Zombie : LivingEntity
         damage = zombieData.damage;
         // 내비메시 에이전트의 이동 속도 설정
         navMeshAgent.speed = zombieData.speed;
+        // 인식 범위 설정
+        senseRange = zombieData.senseRange;
         // 렌더러가 사용중인 머테리얼의 컬러를 변경, 외형 색이 변함
         //zombieRenderer.material.color = zombieData.skinColor;
     }
