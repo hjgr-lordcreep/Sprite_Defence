@@ -154,13 +154,30 @@ public class Gun : MonoBehaviour
         // 라인 렌더러를 활성화하여 총알 궤적을 그린다
         bulletLineRenderer.enabled = true;
 
-        // 0.03초 동안 잠시 처리를 대기
-        yield return new WaitForSeconds(0.03f);
+        // 총알 궤적 설정
+        float duration = 0.1f;
+        float fadeSpeed = 1.0f / duration;
+        float alpha = 1.0f;
 
-        // 라인 렌더러를 비활성화하여 총알 궤적을 지운다
+        while (alpha > 0.0f)
+        {
+            alpha -= fadeSpeed * Time.deltaTime;
+            Color startColor = new Color(1, 1, 1, alpha);
+            bulletLineRenderer.startColor = startColor;
+            bulletLineRenderer.endColor = startColor;
+            yield return null;
+        }
+
         bulletLineRenderer.enabled = false;
-        StopAllCoroutines();
         muzzleLight.enabled = false;
+
+        //// 0.03초 동안 잠시 처리를 대기
+        //yield return new WaitForSeconds(0.03f);
+        //
+        //// 라인 렌더러를 비활성화하여 총알 궤적을 지운다
+        //bulletLineRenderer.enabled = false;
+        //StopAllCoroutines();
+        //muzzleLight.enabled = false;
     }
 
     //// 재장전 시도
