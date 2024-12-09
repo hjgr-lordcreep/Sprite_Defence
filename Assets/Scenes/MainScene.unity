@@ -1602,9 +1602,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: dis
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: playerTr
       value: 
       objectReference: {fileID: 865181301}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: upgradeCanvas
       value: 
@@ -1824,9 +1832,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3450077104229462848, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 4342453284302819127, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 944556357}
+    - target: {fileID: 4342453284302819127, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345203529225448087, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 944556357}
+    - target: {fileID: 4345203529225448087, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeAttackDmg
       objectReference: {fileID: 0}
     - target: {fileID: 7906792420095128053, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
       propertyPath: m_Pivot.x
@@ -1949,6 +1969,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4771368802304592180, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
   m_PrefabInstance: {fileID: 2061621655}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &865255759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1954237457775794595, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
+  m_PrefabInstance: {fileID: 2061621655}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &885644225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1945001192052043549, guid: d7b2f824c236e3341b28504dbb221d0e, type: 3}
@@ -1988,6 +2013,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fortressData: {fileID: 11400000, guid: 720d5a6f633bfb347a42b2fc47769274, type: 2}
+--- !u!114 &944556357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+  m_PrefabInstance: {fileID: 1974120793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c898b816b31e5a4990f5e44ef35224a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &999077204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,9 +2401,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: dis
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: playerTr
       value: 
       objectReference: {fileID: 865181301}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: upgradeCanvas
       value: 
@@ -3068,6 +3112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef51a07336acd6b458cebd5616d515f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 865255759}
   kill: 0
   money: 0
   startGameUI: {fileID: 68791358}
@@ -3298,10 +3343,6 @@ PrefabInstance:
     - target: {fileID: 828588054873430692, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: m_Name
       value: FattyMissileG (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 828588054873430692, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1903107529970885295, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3542,6 +3583,10 @@ PrefabInstance:
     - target: {fileID: 1954237457775794595, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954237457775794595, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4771368802304592180, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3829,9 +3874,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: dis
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: playerTr
       value: 
       objectReference: {fileID: 865181301}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: upgradeCanvas
       value: 
