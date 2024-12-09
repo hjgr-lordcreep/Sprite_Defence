@@ -96,4 +96,10 @@ public class WASDMovement : LivingEntity {
         base.OnDamage(damage, hitPoint, hitNormal);
         Debug.Log("Health : "+health);
     }
+
+    public override void Die()
+    {
+        base.Die();
+        UIManager.instance.GameOver();
+    }
 }

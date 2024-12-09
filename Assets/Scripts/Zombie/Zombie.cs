@@ -8,6 +8,8 @@ public class Zombie : LivingEntity
 {
     public GameObject coin = null;
 
+    public GameObject HealthBar = null;
+
     public LayerMask whatIsTarget; // 추적 대상 레이어
 
     private LivingEntity targetEntity; // 추적할 대상

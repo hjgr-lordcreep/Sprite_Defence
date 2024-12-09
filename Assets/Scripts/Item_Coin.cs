@@ -22,6 +22,7 @@ public class Item_Coin : MonoBehaviour
     }
     public void CoinMove()
     {
+
         transform.Rotate(Vector3.forward);
         if (player.CompareTag("Player"))
         {
