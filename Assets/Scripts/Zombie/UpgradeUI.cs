@@ -97,4 +97,17 @@ public class UpgradeUI : MonoBehaviour
         turret.AttackDamage += upAtkDmg;
         Debug.Log("Upgraded Attack Damage: " + turret.AttackDamage);
     }
+
+    public void UpgradeRPM()
+    {
+        turret.RPM -= 0.01f;
+        Debug.Log("Upgraded RPM: " + turret.RPM);
+    }
+
+    public void UpgradeRange()
+    {
+        turret.Range += 1f;
+        turret.InitRange();
+        Debug.Log("Upgraded Range: " + turret.Range);
+    }
 }

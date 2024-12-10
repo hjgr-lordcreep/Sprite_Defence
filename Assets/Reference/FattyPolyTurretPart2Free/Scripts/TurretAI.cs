@@ -42,10 +42,12 @@ public class TurretAI : MonoBehaviour {
     //public TurretShoot_Base shotScript;
 
     public float AttackDamage { get { return attackDamage; } set { attackDamage = value; } }
+    public float RPM { get { return shootCoolDown; } set { shootCoolDown = value; } }
+    public float Range { get { return attackDist; } set { attackDist = value; } }
 
     private void OnEnable()
     {
-        rangeTr.localScale = new Vector3(attackDist * 2, attackDist * 2, attackDist * 2);
+        InitRange();
     }
 
     void Start() {
@@ -96,6 +98,10 @@ public class TurretAI : MonoBehaviour {
         }
     }
 
+    public void InitRange()
+    {
+        rangeTr.localScale = new Vector3(attackDist * 2, attackDist * 2, attackDist * 2);
+    }
     private void CheckForTarget()
     {
         Collider[] colls = Physics.OverlapSphere(checkTargetTr.position, attackDist, 1 << LayerMask.NameToLayer("Zombie"));
