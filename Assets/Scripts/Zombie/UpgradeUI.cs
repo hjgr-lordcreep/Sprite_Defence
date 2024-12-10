@@ -31,6 +31,11 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField]
     private TurretAI[] turretArray;
 
+    [Header("[Button Array]")]
+    [SerializeField]
+    private TextMeshProUGUI[] buttonTextArray;
+
+
     private static UpgradeUI closestUpgradeUI = null; // 가장 가까운 UpgradeUI
     private static float closestDistance = float.MaxValue; // 현재 가장 가까운 거리
 
@@ -48,6 +53,10 @@ public class UpgradeUI : MonoBehaviour
         dmgSlider.value = Mathf.Lerp(0, 1, turret.AttackDamage / maxDmg);
         rpmSlider.value = Mathf.Lerp(0, 1, maxRPM / turret.RPM);
         rangeSlider.value = Mathf.Lerp(0,1,turret.Range / maxRange);
+
+        buttonTextArray[0].text = dmgMoney + "G";
+        buttonTextArray[1].text = rpmMoney + "G";
+        buttonTextArray[2].text = rangeMoney + "G";
     }
 
     private void Update()
