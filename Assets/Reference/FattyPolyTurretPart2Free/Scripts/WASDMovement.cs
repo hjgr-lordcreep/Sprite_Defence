@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WASDMovement : LivingEntity {
 
@@ -25,7 +22,7 @@ public class WASDMovement : LivingEntity {
     }
 
 
-    private void FixedUpdate () {
+    private void Update () {
 
         // 애니메이션 처리
         PlayAnimation();
@@ -52,25 +49,30 @@ public class WASDMovement : LivingEntity {
                 // 클릭한 위치로 캐릭터 회전
                 RotateTowards(hitInfo.point);
                 moveVec = new Vector3(haxis, 0, vaxis).normalized;
-                if (CheckWall(moveVec)) return;
+                if (CheckWall()) 
+                    moveVec = Vector3.zero;
                 transform.position += moveVec * speed * Time.deltaTime;
             }
         }
         else
         {
             moveVec = new Vector3(haxis, 0, vaxis).normalized;
+            if (CheckWall())
+                moveVec = Vector3.zero;
             transform.position += moveVec * speed * Time.deltaTime;
         
             transform.LookAt(transform.position + moveVec);
         }
     }
 
-    private bool CheckWall(Vector3 moveVec)
+    private bool CheckWall()
     {
-        if(Physics.Raycast(Vector3.positiveInfinity,moveVec, out RaycastHit hit, 1f))
+        if (Physics.Raycast(transform.position, moveVec, out RaycastHit hit, 1f))
         {
             if (hit.collider.CompareTag("Fortress"))
+            {
                 return true;
+            }
         }
         return false;
     }
