@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1850931415426930330, guid: d329706d14305464f9fe90a4bdf22085, type: 3}
       propertyPath: m_Name
-      value: Fortress_square2 Variant
+      value: Fortress_square2
       objectReference: {fileID: 0}
     - target: {fileID: 4198183967786797012, guid: d329706d14305464f9fe90a4bdf22085, type: 3}
       propertyPath: m_LocalScale.y
