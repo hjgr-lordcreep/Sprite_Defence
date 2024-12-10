@@ -52,6 +52,7 @@ public class WASDMovement : LivingEntity {
                 // 클릭한 위치로 캐릭터 회전
                 RotateTowards(hitInfo.point);
                 moveVec = new Vector3(haxis, 0, vaxis).normalized;
+                if (CheckWall(moveVec)) return;
                 transform.position += moveVec * speed * Time.deltaTime;
             }
         }
@@ -62,6 +63,16 @@ public class WASDMovement : LivingEntity {
         
             transform.LookAt(transform.position + moveVec);
         }
+    }
+
+    private bool CheckWall(Vector3 moveVec)
+    {
+        if(Physics.Raycast(Vector3.positiveInfinity,moveVec, out RaycastHit hit, 1f))
+        {
+            if (hit.collider.CompareTag("Fortress"))
+                return true;
+        }
+        return false;
     }
 
     private void PlayAnimation()
