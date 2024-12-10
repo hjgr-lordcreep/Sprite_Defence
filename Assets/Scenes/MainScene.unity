@@ -2529,6 +2529,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4771368802304592180, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
   m_PrefabInstance: {fileID: 2061621655}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &865181309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55698625}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaeced361c94c646acb210afcea4364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  mouseSensitivity: 5
 --- !u!1 &881622699
 GameObject:
   m_ObjectHideFlags: 0
@@ -3103,7 +3117,8 @@ MonoBehaviour:
   - {fileID: 2169889334117703156, guid: a9eeaf48e231894429550074e6f773db, type: 3}
   - {fileID: 7201817330795786800, guid: 0580311a47e76c142ba535632167b9d8, type: 3}
   - {fileID: 6476567082596928114, guid: d210775376f3a484da17bd72b63c1f3d, type: 3}
-  weights: 010000000100000014000000
+  - {fileID: 7035183362792288783, guid: de978facabd064a4496374e639f89d27, type: 3}
+  weights: 01000000010000001400000001000000
   zombieList: []
   MaxSpawnCount: 100
   highWeightValue: 100
@@ -4564,6 +4579,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1653025389397499172, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1629773301831904908, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
       propertyPath: m_UseGravity
       value: 1
@@ -4651,7 +4670,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1954237457775794595, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 865181309}
   m_SourcePrefab: {fileID: 100100000, guid: c64db992a9b3c2942b1edabb51f83064, type: 3}
 --- !u!1 &2091675731
 GameObject:
@@ -4716,7 +4738,7 @@ Camera:
   far clip plane: 1000
   field of view: 60.9
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4741,7 +4763,7 @@ Transform:
   m_GameObject: {fileID: 2091675731}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: 30, y: 30, z: -30}
+  m_LocalPosition: {x: 35, y: 30, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
