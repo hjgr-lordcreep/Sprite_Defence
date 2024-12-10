@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotClip: {fileID: 0}
   reloadClip: {fileID: 0}
-  damage: 100
+  damage: 50
   startAmmoRemain: 100
   magCapacity: 25
-  timeBetFire: 0.12
+  timeBetFire: 0.25
   reloadTime: 1.8
