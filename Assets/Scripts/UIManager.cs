@@ -1,7 +1,6 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.EditorTools;
+using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,6 +25,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI killText;
     public TextMeshProUGUI timeText;
+    public TextMeshProUGUI MainText;
     private float surviveTime;
     public bool isLive;
 
@@ -80,6 +80,13 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        if (!MainText.enabled) return;
+        // Mathf.Sin() 값을 0 ~ 1로 변환해 알파값으로 설정
+        Color currentColor = MainText.color;       // 현재 색상을 가져옵니다.
+        currentColor.a = Mathf.Min(1,(Mathf.Cos(Time.time * 3) + 1)); // 알파 값만 변경
+        MainText.color = currentColor;            // 변경된 색상을 다시 설정
+
+
         if (!isLive) return;
         
         surviveTime += Time.deltaTime;
@@ -88,6 +95,8 @@ public class UIManager : MonoBehaviour
         //moneyText.text = "money: " + money.ToString();
 
         
+
+
         //hpValueRatio = fortressHP.health / fortressHP.startingHealth;
         //fortressSlider.value = Mathf.Lerp(0, 1, hpValueRatio);
 

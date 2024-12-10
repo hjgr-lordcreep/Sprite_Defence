@@ -117,13 +117,6 @@ public class ZombieManager : MonoBehaviour
         }
     }
 
-    // 좀비의 종류에 가중치를 결정하는 함수
-    // 웨이브가 지날수록 쌘 좀비들의 가중치가 높아짐
-    private void InitZombieWeights()
-    {
-
-    }
-
     //private void Pooling()
     //{
     //    for (int i = 0; i < MaxSpawnCount; i++)

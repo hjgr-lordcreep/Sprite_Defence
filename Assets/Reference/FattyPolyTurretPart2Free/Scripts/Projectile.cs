@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour {
     public float turnSpeed = 1;
     public bool catapult;
 
-    public float knockBack = 0.1f;
+    public float knockBack = 0.07f;
     public float boomTimer = 1;
     //public Vector3 _startPosition;
     //public float dist;
@@ -109,7 +109,7 @@ public class Projectile : MonoBehaviour {
             Vector3 dir = other.transform.position - transform.position;
             //Vector3 knockBackPos = other.transform.position * (-dir.normalized * knockBack);
             Vector3 knockBackPos = other.transform.position + (dir.normalized * knockBack);
-            knockBackPos.y = 1;
+            knockBackPos.y = 0;
             other.transform.position = knockBackPos;
             Explosion();
             damageable.OnDamage(turretAI.AttackDamage, other.transform.position, dir.normalized);
