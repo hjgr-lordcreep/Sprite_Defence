@@ -119,6 +119,71 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &217198570
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 211611677752204839, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: zombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: f8b58cccacabe77418ae3bb0fd66dad5, type: 2}
+    - target: {fileID: 1106980516973562697, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106980516973562697, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106980516973562697, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106980516973562697, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106980516973562697, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106980516973562697, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106980516973562697, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106980516973562697, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106980516973562697, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106980516973562697, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016426957201438699, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035183362792288783, guid: de978facabd064a4496374e639f89d27, type: 3}
+      propertyPath: m_Name
+      value: Zombie_Boss
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de978facabd064a4496374e639f89d27, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie_3
       objectReference: {fileID: 0}
+    - target: {fileID: 3677295673595415110, guid: a9eeaf48e231894429550074e6f773db, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3681387820512689497, guid: a9eeaf48e231894429550074e6f773db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5715858
@@ -825,6 +894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie_2
       objectReference: {fileID: 0}
+    - target: {fileID: 7400012527452605179, guid: 0580311a47e76c142ba535632167b9d8, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -876,6 +949,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221915262737758339, guid: d210775376f3a484da17bd72b63c1f3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746991282334785343, guid: d210775376f3a484da17bd72b63c1f3d, type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6476567082596928114, guid: d210775376f3a484da17bd72b63c1f3d, type: 3}
@@ -984,3 +1061,4 @@ SceneRoots:
   - {fileID: 1881956770}
   - {fileID: 1351387480}
   - {fileID: 846980691}
+  - {fileID: 217198570}
