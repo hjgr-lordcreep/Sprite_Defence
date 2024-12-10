@@ -327,6 +327,8 @@ public class Zombie : LivingEntity
             // 상대방의 LivingEntity가 자신의 추적 대상이라면 공격 실행
             if (attackTarget != null && attackTarget == targetEntity)
             {
+                zombieAnimator.SetBool("Attack", true);
+
                 // 최근 공격 시간을 갱신
                 lastAttackTime = Time.time;
 
