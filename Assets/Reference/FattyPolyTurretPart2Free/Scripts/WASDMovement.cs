@@ -69,8 +69,8 @@ public class WASDMovement : LivingEntity {
         anim.SetFloat("Forward", vaxis);
         anim.SetFloat("Right", haxis);
 
-        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
-        anim.SetBool("Sprint", isSprinting);
+        //bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        //anim.SetBool("Sprint", isSprinting);
     }
 
     private void RotateTowards(Vector3 targetPosition)

@@ -14,11 +14,11 @@ public class Zombie : LivingEntity
     private LivingEntity targetEntity; // 추적할 대상
     private NavMeshAgent navMeshAgent; // 경로계산 AI 에이전트
 
-    //public ParticleSystem hitEffect; // 피격시 재생할 파티클 효과
+    public ParticleSystem hitEffect; // 피격시 재생할 파티클 효과
     //public AudioClip deathSound; // 사망시 재생할 소리
     //public AudioClip hitSound; // 피격시 재생할 소리
 
-    //private Animator zombieAnimator; // 애니메이터 컴포넌트
+    private Animator zombieAnimator; // 애니메이터 컴포넌트
     //private AudioSource zombieAudioPlayer; // 오디오 소스 컴포넌트
     //private Renderer zombieRenderer; // 렌더러 컴포넌트
 
@@ -35,6 +35,7 @@ public class Zombie : LivingEntity
     public static event System.Action OnZombieDisabled;
 
     private Coroutine pathCoroutine;
+    private Collider zombieCol = null;
 
     // 좀비가 활성화되면 좀비 액티브 카운터가 증가하는 이벤트 전달
     protected override void OnEnable()
@@ -43,6 +44,9 @@ public class Zombie : LivingEntity
         // Invoke만 추가로 실행되게 오버라이드 함.
         base.OnEnable();
         OnZombieEnabled?.Invoke();
+        zombieCol.enabled = true;
+        navMeshAgent.updatePosition = true;
+        navMeshAgent.updateRotation = true;
 
         Setup(zombieData);
         // 코루틴이 이미 실행 중이면 중지
@@ -59,10 +63,10 @@ public class Zombie : LivingEntity
     private void OnDisable()
     {
         // 코루틴 정지
-        if (pathCoroutine != null)
-        {
-            StopCoroutine(pathCoroutine);
-        }
+        //if (pathCoroutine != null)
+        //{
+        //    StopCoroutine(pathCoroutine);
+        //}
 
         OnZombieDisabled?.Invoke();
         //targetEntity = null;
@@ -90,7 +94,8 @@ public class Zombie : LivingEntity
     {
         // 게임 오브젝트로부터 사용할 컴포넌트들을 가져오기
         navMeshAgent = GetComponent<NavMeshAgent>();
-        //zombieAnimator = GetComponent<Animator>();
+        zombieAnimator = GetComponent<Animator>();
+        zombieCol = GetComponent<Collider>();
         //zombieAudioPlayer = GetComponent<AudioSource>();
 
         // 렌더러 컴포넌트는 자식 게임 오브젝트에게 있으므로
@@ -248,24 +253,45 @@ public class Zombie : LivingEntity
         Vector3 hitPoint, Vector3 hitNormal)
     {
         //// 아직 사망하지 않은 경우에만 피격 효과 재생
-        //if (!IsDead)
-        //{
-        //    // 공격 받은 지점과 방향으로 파티클 효과를 재생
-        //    hitEffect.transform.position = hitPoint;
-        //    hitEffect.transform.rotation
-        //        = Quaternion.LookRotation(hitNormal);
-        //    hitEffect.Play();
+        if (!IsDead)
+        {
+            // 공격 받은 지점과 방향으로 파티클 효과를 재생
+            hitEffect.transform.position = hitPoint;
+            hitEffect.transform.rotation
+                = Quaternion.LookRotation(hitNormal);
+            if(!hitEffect.isPlaying)
+                hitEffect.Play();
 
-        //    // 피격 효과음 재생
-        //    zombieAudioPlayer.PlayOneShot(hitSound);
-        //}
+            //    // 피격 효과음 재생
+            //    zombieAudioPlayer.PlayOneShot(hitSound);
+            //}
 
-        // LivingEntity의 OnDamage()를 실행하여 데미지 적용
-        base.OnDamage(damage, hitPoint, hitNormal);
+            // LivingEntity의 OnDamage()를 실행하여 데미지 적용
+            base.OnDamage(damage, hitPoint, hitNormal);
+        }
     }
 
     // 사망 처리
     public override void Die()
+    {
+        // 사망 애니메이션 재생
+        zombieAnimator.SetTrigger("Die");
+        // 약 3초 뒤 실제 사망 스크립트 작동
+        if (pathCoroutine != null)
+        {
+            StopCoroutine(pathCoroutine);
+        }
+        
+        zombieCol.enabled = false;  
+        navMeshAgent.isStopped = true;
+        navMeshAgent.updatePosition = false;
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.velocity = Vector3.zero;
+
+        Invoke("DelayedDie", 2.967f);
+    }
+
+    private void DelayedDie()
     {
         // LivingEntity의 Die()를 실행하여 기본 사망 처리 실행
         base.Die();
@@ -284,8 +310,6 @@ public class Zombie : LivingEntity
         //navMeshAgent.isStopped = true;
         //navMeshAgent.enabled = false;
 
-        //// 사망 애니메이션 재생
-        //zombieAnimator.SetTrigger("Die");
         //// 사망 효과음 재생
         //zombieAudioPlayer.PlayOneShot(deathSound);
     }

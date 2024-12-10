@@ -166,7 +166,7 @@ MonoBehaviour:
   catapult: 0
   knockBack: 1
   boomTimer: 2
-  explosion: {fileID: 198049787571439516, guid: 6d074a749488789479e539251fdf184e, type: 3}
+  explosion: {fileID: 19800004, guid: b46890100828db6429ff69c322b45893, type: 3}
 --- !u!54 &54733545500693444
 Rigidbody:
   m_ObjectHideFlags: 0
