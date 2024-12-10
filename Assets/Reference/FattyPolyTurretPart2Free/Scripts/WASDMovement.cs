@@ -25,7 +25,7 @@ public class WASDMovement : LivingEntity {
     }
 
 
-    private void Update () {
+    private void FixedUpdate () {
 
         // 애니메이션 처리
         PlayAnimation();
