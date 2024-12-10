@@ -37,6 +37,8 @@ public class Gun : MonoBehaviour
 
     private float lastFireTime; // 총을 마지막으로 발사한 시점
 
+    private float knockBack = 0.07f;
+
     private void Awake()
     {
         // 사용할 컴포넌트들의 참조를 가져오기
@@ -114,6 +116,11 @@ public class Gun : MonoBehaviour
             }
 
             // 레이가 충돌한 위치 저장
+            Vector3 dir = hit.transform.position - transform.position;
+            //Vector3 knockBackPos = other.transform.position * (-dir.normalized * knockBack);
+            Vector3 knockBackPos = hit.transform.position + (dir.normalized * knockBack);
+            knockBackPos.y = 0;
+            hit.transform.position = knockBackPos;
             hitPosition = hit.point;
         }
         else
