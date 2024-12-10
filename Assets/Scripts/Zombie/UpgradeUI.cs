@@ -79,22 +79,22 @@ public class UpgradeUI : MonoBehaviour
 
     public void UpgradeAttackDmg()
     {
-        if (closestUpgradeUI == null)
-        {
-            Debug.Log("No closest turret available.");
-            return;
-        }
+        //if (closestUpgradeUI == null)
+        //{
+        //    Debug.Log("No closest turret available.");
+        //    return;
+        //}
 
-        TurretAI closestTurret = closestUpgradeUI.turret;
+        //TurretAI closestTurret = closestUpgradeUI.turret;
 
-        if (closestTurret == null)
-        {
-            Debug.Log("Turret is Null for the closest UI.");
-            return;
-        }
+        //if (closestTurret == null)
+        //{
+        //    Debug.Log("Turret is Null for the closest UI.");
+        //    return;
+        //}
 
         // 공격력 업그레이드 처리
-        closestTurret.AttackDamage += upAtkDmg;
-        Debug.Log("Upgraded Attack Damage: " + closestTurret.AttackDamage);
+        turret.AttackDamage += upAtkDmg;
+        Debug.Log("Upgraded Attack Damage: " + turret.AttackDamage);
     }
 }
