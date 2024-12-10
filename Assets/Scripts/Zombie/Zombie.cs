@@ -13,11 +13,10 @@ public class Zombie : LivingEntity
     private LivingEntity targetEntity; // 추적할 대상
     private NavMeshAgent navMeshAgent; // 경로계산 AI 에이전트
 
-    //public ParticleSystem hitEffect; // 피격시 재생할 파티클 효과
+    public ParticleSystem hitEffect; // 피격시 재생할 파티클 효과
     //public AudioClip deathSound; // 사망시 재생할 소리
     //public AudioClip hitSound; // 피격시 재생할 소리
 
-    [SerializeField]
     private Animator zombieAnimator; // 애니메이터 컴포넌트
     //private AudioSource zombieAudioPlayer; // 오디오 소스 컴포넌트
     //private Renderer zombieRenderer; // 렌더러 컴포넌트
@@ -253,20 +252,22 @@ public class Zombie : LivingEntity
         Vector3 hitPoint, Vector3 hitNormal)
     {
         //// 아직 사망하지 않은 경우에만 피격 효과 재생
-        //if (!IsDead)
-        //{
-        //    // 공격 받은 지점과 방향으로 파티클 효과를 재생
-        //    hitEffect.transform.position = hitPoint;
-        //    hitEffect.transform.rotation
-        //        = Quaternion.LookRotation(hitNormal);
-        //    hitEffect.Play();
+        if (!IsDead)
+        {
+            // 공격 받은 지점과 방향으로 파티클 효과를 재생
+            hitEffect.transform.position = hitPoint;
+            hitEffect.transform.rotation
+                = Quaternion.LookRotation(hitNormal);
+            if(!hitEffect.isPlaying)
+                hitEffect.Play();
 
-        //    // 피격 효과음 재생
-        //    zombieAudioPlayer.PlayOneShot(hitSound);
-        //}
+            //    // 피격 효과음 재생
+            //    zombieAudioPlayer.PlayOneShot(hitSound);
+            //}
 
-        // LivingEntity의 OnDamage()를 실행하여 데미지 적용
-        base.OnDamage(damage, hitPoint, hitNormal);
+            // LivingEntity의 OnDamage()를 실행하여 데미지 적용
+            base.OnDamage(damage, hitPoint, hitNormal);
+        }
     }
 
     // 사망 처리
