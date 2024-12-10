@@ -288,7 +288,7 @@ public class Zombie : LivingEntity
         navMeshAgent.updateRotation = false;
         navMeshAgent.velocity = Vector3.zero;
 
-        Invoke("DelayedDie", 2.967f);
+        Invoke("DelayedDie", 1.5f);
     }
 
     private void DelayedDie()

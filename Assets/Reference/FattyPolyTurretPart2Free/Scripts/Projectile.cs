@@ -114,7 +114,7 @@ public class Projectile : MonoBehaviour {
             knockBackPos.y = 1;
             other.transform.position = knockBackPos;
             Explosion();
-            damageable.OnDamage(turretAI.AttackDamage,Vector3.zero,Vector3.zero);
+            damageable.OnDamage(turretAI.AttackDamage, other.transform.position, dir.normalized);
         }
     }
 
