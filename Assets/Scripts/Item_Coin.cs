@@ -22,6 +22,7 @@ public class Item_Coin : MonoBehaviour
     }
     public void CoinMove()
     {
+        if (player == null) return; // null일 경우 함수 종료
 
         transform.Rotate(Vector3.forward);
         if (player.CompareTag("Player"))
