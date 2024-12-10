@@ -488,7 +488,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8494580932164471514}
@@ -577,11 +577,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 4436162982857671193, guid: d2dcffec4aa63d540bd0e17d6e9bb408, type: 3}
+  HealthBar: {fileID: 0}
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 512
   hitEffect: {fileID: 3971228938856651444}
-  zombieData: {fileID: 11400000, guid: cce332805e1549441b79a83f0ced1ebc, type: 2}
+  zombieData: {fileID: 11400000, guid: a9f285f35d3fae246baa6d5e90d29346, type: 2}
   timeBetAttack: 0.5
 --- !u!54 &-1718913302988698135
 Rigidbody:
