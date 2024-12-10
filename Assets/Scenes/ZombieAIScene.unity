@@ -1120,6 +1120,8 @@ GameObject:
   - component: {fileID: 1804142637}
   - component: {fileID: 1804142636}
   - component: {fileID: 1804142635}
+  - component: {fileID: 1804142640}
+  - component: {fileID: 1804142639}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1146,8 +1148,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.8944407, y: 0.99999964, z: 0.38013956}
+  m_Center: {x: 1.9472203, y: 0, z: 0.8009981}
 --- !u!23 &1804142636
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1216,6 +1218,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1804142639
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804142634}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.83646, y: 1.0000001, z: 1.8826767}
+  m_Center: {x: 5.921361, y: 0, z: 0.19423202}
+--- !u!65 &1804142640
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804142634}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.4854403, y: 1.0000001, z: 0.2507008}
+  m_Center: {x: 2.7427201, y: 0, z: -0.6710815}
 --- !u!114 &2072689403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
@@ -1291,6 +1335,22 @@ PrefabInstance:
       propertyPath: highWeightValue
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 7046128068622638218, guid: e968c806a0081c540be0044eeed26380, type: 3}
+      propertyPath: zombiePrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7046128068622638218, guid: e968c806a0081c540be0044eeed26380, type: 3}
+      propertyPath: 'zombiePrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6476567082596928114, guid: d210775376f3a484da17bd72b63c1f3d, type: 3}
+    - target: {fileID: 7046128068622638218, guid: e968c806a0081c540be0044eeed26380, type: 3}
+      propertyPath: 'zombiePrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7201817330795786800, guid: 0580311a47e76c142ba535632167b9d8, type: 3}
+    - target: {fileID: 7046128068622638218, guid: e968c806a0081c540be0044eeed26380, type: 3}
+      propertyPath: 'zombiePrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2169889334117703156, guid: a9eeaf48e231894429550074e6f773db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -106,17 +106,23 @@ public class TurretAI : MonoBehaviour {
             if (/*colls[i].tag == "Zombie" && */colls[i].gameObject.activeSelf)
             {
                 float dist = Vector3.Distance(checkTargetTr.position, colls[i].transform.position);
-                if (dist < distAway)
+                //Vector3 directionToCollider = (colls[i].transform.position - checkTargetTr.position).normalized;
+                if (dist < distAway /*&& IsInQuarterCircle(directionToCollider, Vector3.forward, Vector3.right)*/)
                 {
                     currentTarget = colls[i].gameObject;
                     distAway = dist;
                 }
             }
-            //else
-            //{
-            //    currentTarget = null;
-            //}
+
         }
+    }
+
+    private bool IsInQuarterCircle(Vector3 targetDirection, Vector3 forward, Vector3 right)
+    {
+        // 전방(+Z)와 우측(+X) 방향으로 나뉜 1/4 구역 체크
+        float forwardDot = Vector3.Dot(targetDirection, forward); // 전방 기준
+        float rightDot = Vector3.Dot(targetDirection, right);     // 우측 기준
+        return forwardDot > 0 && rightDot > 0; // 전방 우측 1/4
     }
 
     private void FollowTarget() //todo : smooth rotate
@@ -164,7 +170,7 @@ public class TurretAI : MonoBehaviour {
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackDist);
+        Gizmos.DrawWireSphere(checkTargetTr.position, attackDist);
     }
 
     public void IdleRitate()

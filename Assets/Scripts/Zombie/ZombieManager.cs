@@ -6,6 +6,10 @@ public class ZombieManager : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> zombiePrefabs = null;
+    [SerializeField]
+    private int[] weights = { 1, 1, 20 }; // 초기 가중치
+    private int increment1 = 1; // 첫 번째 프리팹 가중치 증가량
+    private int increment2 = 2; // 두 번째 프리팹 가중치 증가량
 
     [SerializeField]
     private List<Zombie> zombieList = null;
@@ -113,6 +117,13 @@ public class ZombieManager : MonoBehaviour
         }
     }
 
+    // 좀비의 종류에 가중치를 결정하는 함수
+    // 웨이브가 지날수록 쌘 좀비들의 가중치가 높아짐
+    private void InitZombieWeights()
+    {
+
+    }
+
     //private void Pooling()
     //{
     //    for (int i = 0; i < MaxSpawnCount; i++)
@@ -164,6 +175,8 @@ public class ZombieManager : MonoBehaviour
         activeCoroutine = false;
         // 다음번 생성되는 좀비의 최대 수를 5늘림
         MaxSpawnCount += 5;
+        // 좀비 스폰후 좀비들의 가중치 변경
+        IncreaseWeights();
     }
 
     private Vector3 SelectSpawnPoint()
@@ -190,11 +203,47 @@ public class ZombieManager : MonoBehaviour
         return randomspawn;
     }
 
+    private void IncreaseWeights()
+    {
+        weights[0] += increment1; // 첫 번째 프리팹의 가중치를 1씩 증가
+        weights[1] += increment2; // 두 번째 프리팹의 가중치를 2씩 증가
+        // 세 번째 프리팹의 가중치는 그대로 유지
+    }
+
+    private GameObject SelectPrefab()
+    {
+        int totalWeight = 0;
+
+        // 전체 가중치 합 계산
+        foreach (int weight in weights)
+        {
+            totalWeight += weight;
+        }
+
+        // 랜덤 값 생성
+        int randomValue = Random.Range(0, totalWeight);
+        int cumulativeWeight = 0;
+
+        // 랜덤 값을 가중치에 따라 분배하여 프리팹 선택
+        for (int i = 0; i < weights.Length; i++)
+        {
+            cumulativeWeight += weights[i];
+            if (randomValue < cumulativeWeight)
+            {
+                return zombiePrefabs[i];
+            }
+        }
+
+        // 기본값 (문제가 있을 경우)
+        return zombiePrefabs[0];
+    }
+
     private Zombie SpawnZombie(Vector3 _pos)
     {
-        GameObject randomZombiePrefab = zombiePrefabs[Random.Range(0, zombiePrefabs.Count)];
+        //GameObject randomZombiePrefab = zombiePrefabs[Random.Range(0, zombiePrefabs.Count)];
 
-        GameObject zombieGo = Instantiate(randomZombiePrefab, _pos, Quaternion.identity, transform);
+        GameObject zombieGo = Instantiate(SelectPrefab(), _pos, Quaternion.identity, transform);
+
 
         return zombieGo.GetComponent<Zombie>();
     }
