@@ -167,6 +167,7 @@ MonoBehaviour:
   knockBack: 1
   boomTimer: 2
   explosion: {fileID: 19800004, guid: b46890100828db6429ff69c322b45893, type: 3}
+  explosionSound: {fileID: 8300000, guid: bf07025a9bc50454bacda1eb7c3f4706, type: 3}
 --- !u!54 &54733545500693444
 Rigidbody:
   m_ObjectHideFlags: 0
