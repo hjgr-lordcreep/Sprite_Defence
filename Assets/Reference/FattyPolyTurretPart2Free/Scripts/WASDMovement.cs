@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WASDMovement : LivingEntity {
+public class WASDMovement : MonoBehaviour {
 
     private Gun gun = null;
     private Animator anim = null;
@@ -108,18 +108,5 @@ public class WASDMovement : LivingEntity {
         //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     
         transform.rotation = targetRotation;
-    }
-
-    public override void OnDamage(float damage, Vector3 hitPoint,
-        Vector3 hitNormal)
-    {
-        base.OnDamage(damage, hitPoint, hitNormal);
-        Debug.Log("Health : "+health);
-    }
-
-    public override void Die()
-    {
-        base.Die();
-        UIManager.instance.GameOver();
     }
 }
