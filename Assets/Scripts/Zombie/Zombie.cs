@@ -190,7 +190,7 @@ public class Zombie : LivingEntity
             }
 
             // 0.25초 주기로 반복
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.25f);
         }
     }
     // 주기적으로 추적할 대상의 위치를 찾아 경로를 갱신

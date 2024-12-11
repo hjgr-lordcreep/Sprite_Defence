@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : LivingEntity
 {
     //Item item;
     int coin;
@@ -35,5 +35,18 @@ public class Player : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
+    }
+
+    public override void OnDamage(float damage, Vector3 hitPoint,
+    Vector3 hitNormal)
+    {
+        base.OnDamage(damage, hitPoint, hitNormal);
+        Debug.Log("Health : " + health);
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        UIManager.instance.GameOver();
     }
 }
