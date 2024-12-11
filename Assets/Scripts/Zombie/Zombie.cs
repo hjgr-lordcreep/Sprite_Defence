@@ -11,7 +11,7 @@ public class Zombie : LivingEntity
 
     public LayerMask whatIsTarget; // 추적 대상 레이어
 
-    private LivingEntity targetEntity; // 추적할 대상
+    public LivingEntity targetEntity; // 추적할 대상
     private NavMeshAgent navMeshAgent; // 경로계산 AI 에이전트
 
     public ParticleSystem hitEffect; // 피격시 재생할 파티클 효과
@@ -190,7 +190,7 @@ public class Zombie : LivingEntity
             }
 
             // 0.25초 주기로 반복
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
     // 주기적으로 추적할 대상의 위치를 찾아 경로를 갱신
@@ -327,10 +327,10 @@ public class Zombie : LivingEntity
             // 상대방의 LivingEntity가 자신의 추적 대상이라면 공격 실행
             if (attackTarget != null && !other.CompareTag("Zombie"))
             {
-                navMeshAgent.isStopped = true;
-                navMeshAgent.updatePosition = false;
-                navMeshAgent.updateRotation = false;
-                navMeshAgent.velocity = Vector3.zero;
+                //navMeshAgent.isStopped = true;
+                //navMeshAgent.updatePosition = false;
+                //navMeshAgent.updateRotation = false;
+                //navMeshAgent.velocity = Vector3.zero;
 
                 // 공격 애니메이션 On
                 zombieAnimator.SetBool("Attack", true);
@@ -352,12 +352,12 @@ public class Zombie : LivingEntity
             }
 
             
-            navMeshAgent.isStopped = false;
-            navMeshAgent.updatePosition = true;
-            navMeshAgent.updateRotation = true;
+            //navMeshAgent.isStopped = false;
+            //navMeshAgent.updatePosition = true;
+            //navMeshAgent.updateRotation = true;
 
             // 공격 애니메이션 Off
-            zombieAnimator.SetBool("Attack", false);
+            //zombieAnimator.SetBool("Attack", false);
         }
     }
 }

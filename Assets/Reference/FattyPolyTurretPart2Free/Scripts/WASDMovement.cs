@@ -55,7 +55,7 @@ public class WASDMovement : LivingEntity {
 
                 Vector3 moveRoVec = (rotation * moveVec).normalized;
                 if (CheckWall()) 
-                    moveVec = Vector3.zero;
+                    moveRoVec = Vector3.zero;
                 transform.position += moveRoVec * speed * Time.deltaTime;
             }
         }
@@ -65,7 +65,7 @@ public class WASDMovement : LivingEntity {
 
             Vector3 moveRoVec = (rotation * moveVec).normalized;
             if (CheckWall())
-                moveVec = Vector3.zero;
+                moveRoVec = Vector3.zero;
             transform.position += moveRoVec * speed * Time.deltaTime;
         
             transform.LookAt(transform.position + moveRoVec);

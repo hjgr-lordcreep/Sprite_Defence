@@ -1675,7 +1675,7 @@ RectTransform:
   m_Father: {fileID: 1533113435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -2097,10 +2097,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1661816526276575173, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661816526276575173, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970572217856019316, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970572217856019316, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2931156877297966780, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 944556357}
+    - target: {fileID: 3246725033192114586, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3450077104229462848, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
       propertyPath: m_Name
       value: UpgradeCanvas
@@ -2109,6 +2129,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 944556357}
+    - target: {fileID: 5715054390482419487, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715054390482419487, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6187367693374674367, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2585,11 +2613,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefabs:
+  - {fileID: 2787710051222139424, guid: de978facabd064a4496374e639f89d27, type: 3}
   - {fileID: 2169889334117703156, guid: a9eeaf48e231894429550074e6f773db, type: 3}
   - {fileID: 7201817330795786800, guid: 0580311a47e76c142ba535632167b9d8, type: 3}
   - {fileID: 6476567082596928114, guid: d210775376f3a484da17bd72b63c1f3d, type: 3}
-  - {fileID: 2787710051222139424, guid: de978facabd064a4496374e639f89d27, type: 3}
-  weights: 450000001e0000008403000001000000
+  weights: 010000001e0000004500000084030000
   zombieList: []
   MaxSpawnCount: 100
   highWeightValue: 85
@@ -3294,7 +3322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1526180194
 RectTransform:
   m_ObjectHideFlags: 0
