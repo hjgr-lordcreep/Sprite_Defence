@@ -296,7 +296,7 @@ public class Zombie : LivingEntity
         // LivingEntity의 Die()를 실행하여 기본 사망 처리 실행
         base.Die();
         UIManager.instance.kill++;
-        UIManager.instance.killText.text = "Kill: " + UIManager.instance.kill.ToString();
+        UIManager.instance.killText.text = UIManager.instance.kill.ToString();
         Instantiate(coin, transform.position, Quaternion.Euler(90, 0, 0));
 
         // 다른 AI들을 방해하지 않도록 자신의 모든 콜라이더들을 비활성화

@@ -155,7 +155,7 @@ public class UpgradeUI : MonoBehaviour
         }
 
         UIManager.instance.money -= dmgMoney;
-        UIManager.instance.moneyText.text = "money: " + UIManager.instance.money.ToString();
+        UIManager.instance.moneyText.text = UIManager.instance.money.ToString();
 
         dmgSlider.value = Mathf.Lerp(0, 1, turret.AttackDamage / maxDmg);
 
@@ -173,7 +173,7 @@ public class UpgradeUI : MonoBehaviour
         }
 
         UIManager.instance.money -= rpmMoney;
-        UIManager.instance.moneyText.text = "money: " + UIManager.instance.money.ToString();
+        UIManager.instance.moneyText.text = UIManager.instance.money.ToString();
 
         rpmSlider.value = Mathf.Lerp(0, 1, maxRPM / turret.RPM);
 
@@ -192,7 +192,7 @@ public class UpgradeUI : MonoBehaviour
         }
 
         UIManager.instance.money -= rangeMoney;
-        UIManager.instance.moneyText.text = "money: " + UIManager.instance.money.ToString();
+        UIManager.instance.moneyText.text = UIManager.instance.money.ToString();
 
         rangeSlider.value = Mathf.Lerp(0, 1, turret.Range / maxRange);
 
@@ -203,7 +203,7 @@ public class UpgradeUI : MonoBehaviour
     {
         if (UIManager.instance.money <= repairMoney) return;
         UIManager.instance.money -= repairMoney;
-        UIManager.instance.moneyText.text = "money: " + UIManager.instance.money.ToString();
+        UIManager.instance.moneyText.text = UIManager.instance.money.ToString();
         fortress.Repair();
         Debug.Log(fortress.health);
         UIManager.instance.FortressHPUpdate();
