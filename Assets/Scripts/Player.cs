@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
             {
                 case Item.Type.Coin:
                     UIManager.instance.money += item.value;
-                    UIManager.instance.moneyText.text = "money: " + UIManager.instance.money.ToString();
+                    UIManager.instance.moneyText.text = UIManager.instance.money.ToString();
                     break;
                 case Item.Type.SpeedUp:
                     speedUp += item.value;
