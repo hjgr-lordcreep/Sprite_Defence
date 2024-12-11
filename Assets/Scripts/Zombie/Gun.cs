@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
 
     private LineRenderer bulletLineRenderer; // 총알 궤적을 그리기 위한 렌더러
 
-    //private AudioSource gunAudioPlayer; // 총 소리 재생기
+    private AudioSource gunAudioPlayer; // 총 소리 재생기
 
     public GunData gunData; // 총의 현재 데이터
 
@@ -42,7 +42,7 @@ public class Gun : MonoBehaviour
     private void Awake()
     {
         // 사용할 컴포넌트들의 참조를 가져오기
-        //gunAudioPlayer = GetComponent<AudioSource>();
+        gunAudioPlayer = GetComponent<AudioSource>();
         bulletLineRenderer = GetComponent<LineRenderer>();
 
         // 사용할 점을 두개로 변경
@@ -153,7 +153,7 @@ public class Gun : MonoBehaviour
         //shellEjectEffect.Play();
 
         //// 총격 소리 재생
-        //gunAudioPlayer.PlayOneShot(gunData.shotClip);
+        gunAudioPlayer.PlayOneShot(gunData.shotClip);
 
         // 선의 시작점은 총구의 위치
         bulletLineRenderer.SetPosition(0, fireTransform.position);
