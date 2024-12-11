@@ -7,13 +7,14 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField]
     private Transform playerTr = null; // 플레이어 Transform
     [SerializeField]
+    private Fortress fortress = null;
+
+    [SerializeField]
     private Canvas upgradeCanvas = null; // UI Canvas
     [SerializeField]
     private Image upgradeImage = null;
     [SerializeField]
     private TextMeshProUGUI upgradeText = null;
-    [SerializeField]
-    private float dis = 10f; // 반응 거리
     [SerializeField]
     private UIManager uiManager = null;
     [SerializeField]
@@ -23,8 +24,11 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField]
     private Slider rangeSlider = null;
 
+
     [SerializeField]
     private float upAtkDmg = 5f; // 공격력 증가량
+    [SerializeField]
+    private float dis = 10f; // 반응 거리
 
     private TurretAI turret = null; // TurretAI 참조
 
@@ -45,7 +49,8 @@ public class UpgradeUI : MonoBehaviour
 
     private int dmgMoney = 100;
     private int rpmMoney = 200;
-    private int rangeMoney = 400;   
+    private int rangeMoney = 400;
+    private int repairMoney = 100;
 
     private void Start()
     {
@@ -192,5 +197,15 @@ public class UpgradeUI : MonoBehaviour
         rangeSlider.value = Mathf.Lerp(0, 1, turret.Range / maxRange);
 
         Debug.Log("Upgraded Range: " + turret.Range);
+    }
+
+    public void Repair()
+    {
+        if (UIManager.instance.money <= repairMoney) return;
+        UIManager.instance.money -= repairMoney;
+        UIManager.instance.moneyText.text = "money: " + UIManager.instance.money.ToString();
+        fortress.Repair();
+        Debug.Log(fortress.health);
+        UIManager.instance.FortressHPUpdate();
     }
 }

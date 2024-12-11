@@ -31,4 +31,11 @@ public class Fortress : LivingEntity
         Debug.Log(health);
     }
 
+    public void Repair()
+    {
+        if (health >= startingHealth) return;
+
+        health += 2000;
+    }
+
 }
