@@ -37,9 +37,6 @@ public class Zombie : LivingEntity
     private Coroutine pathCoroutine;
     private Collider zombieCol = null;
 
-    [SerializeField]
-    private Fortress fortress = null;
-
     // 좀비가 활성화되면 좀비 액티브 카운터가 증가하는 이벤트 전달
     protected override void OnEnable()
     {
@@ -157,8 +154,8 @@ public class Zombie : LivingEntity
             for (int i = 0; i < colliders.Length; i++)
             {
                 // Fortress 또는 Player 태그가 아니면 건너뜀
-                if (!colliders[i].CompareTag("Fortress") && !colliders[i].CompareTag("Player"))
-                    continue;
+                //if (!colliders[i].CompareTag("Fortress") && !colliders[i].CompareTag("Player"))
+                //    continue;
 
                 // LivingEntity 컴포넌트 가져오기
                 LivingEntity livingEntity = colliders[i].GetComponent<LivingEntity>();
@@ -184,7 +181,7 @@ public class Zombie : LivingEntity
             // 추적 대상이 존재하면 계속 추적
             if (hasTarget)
             {
-                navMeshAgent.isStopped = false;
+                //navMeshAgent.isStopped = false;
                 navMeshAgent.SetDestination(targetEntity.transform.position);
             }
             else
@@ -330,6 +327,11 @@ public class Zombie : LivingEntity
             // 상대방의 LivingEntity가 자신의 추적 대상이라면 공격 실행
             if (attackTarget != null && !other.CompareTag("Zombie"))
             {
+                navMeshAgent.isStopped = true;
+                navMeshAgent.updatePosition = false;
+                navMeshAgent.updateRotation = false;
+                navMeshAgent.velocity = Vector3.zero;
+
                 // 공격 애니메이션 On
                 zombieAnimator.SetBool("Attack", true);
 
@@ -348,6 +350,11 @@ public class Zombie : LivingEntity
                 // UI업데이트, 기지체력
                 UIManager.instance.FortressHPUpdate();
             }
+
+            
+            navMeshAgent.isStopped = false;
+            navMeshAgent.updatePosition = true;
+            navMeshAgent.updateRotation = true;
 
             // 공격 애니메이션 Off
             zombieAnimator.SetBool("Attack", false);

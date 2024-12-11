@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8653378595182783182}
   - component: {fileID: 8355280339844320503}
-  - component: {fileID: 2355103284290805748}
   - component: {fileID: 7008892964617036207}
   m_Layer: 0
   m_Name: MiniCam
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 391202302341990357}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -355.77557, y: 9.900993, z: 0}
+  m_LocalPosition: {x: -355, y: 8, z: 0}
   m_LocalScale: {x: 0.330033, y: 0.330033, z: 0.330033}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,14 +84,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2355103284290805748
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391202302341990357}
-  m_Enabled: 0
 --- !u!114 &7008892964617036207
 MonoBehaviour:
   m_ObjectHideFlags: 0

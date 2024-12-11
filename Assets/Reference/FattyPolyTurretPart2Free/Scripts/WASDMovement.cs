@@ -10,6 +10,9 @@ public class WASDMovement : LivingEntity {
     private float haxis;
     private float vaxis;
     private float rotationSpeed = 5f;
+    private Quaternion rotation = Quaternion.Euler(0, -45f, 0);
+
+
 
     private void Awake()
     {
@@ -48,20 +51,24 @@ public class WASDMovement : LivingEntity {
             {
                 // 클릭한 위치로 캐릭터 회전
                 RotateTowards(hitInfo.point);
-                moveVec = new Vector3(haxis, 0, vaxis).normalized;
+                moveVec = new Vector3(haxis, 0, vaxis);
+
+                Vector3 moveRoVec = (rotation * moveVec).normalized;
                 if (CheckWall()) 
                     moveVec = Vector3.zero;
-                transform.position += moveVec * speed * Time.deltaTime;
+                transform.position += moveRoVec * speed * Time.deltaTime;
             }
         }
         else
         {
-            moveVec = new Vector3(haxis, 0, vaxis).normalized;
+            moveVec = new Vector3(haxis, 0, vaxis);
+
+            Vector3 moveRoVec = (rotation * moveVec).normalized;
             if (CheckWall())
                 moveVec = Vector3.zero;
-            transform.position += moveVec * speed * Time.deltaTime;
+            transform.position += moveRoVec * speed * Time.deltaTime;
         
-            transform.LookAt(transform.position + moveVec);
+            transform.LookAt(transform.position + moveRoVec);
         }
     }
 
