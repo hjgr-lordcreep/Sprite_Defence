@@ -276,7 +276,7 @@ MonoBehaviour:
   muzzleFlashEffect: {fileID: 2955092496668436843}
   gunData: {fileID: 11400000, guid: 0ebd1b0a4ab730c41a2e49758890fef0, type: 2}
   muzzleLight: {fileID: 2955092496693263659}
-  fireDistance: 50
+  fireDistance: 35
   ammoRemain: 100
   magAmmo: 25
 --- !u!1 &649468399212015444

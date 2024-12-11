@@ -255,7 +255,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   turnHead: {fileID: 6303924697027082840}
   attackDist: 12.5
-  attackDamage: 50
+  attackDamage: 25
   shootCoolDown: 0.2
   checkTargetTime: 0.1
   lockSpeed: 100
@@ -281,9 +281,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTr: {fileID: 0}
+  fortress: {fileID: 0}
   upgradeCanvas: {fileID: 0}
-  dis: 10
+  upgradeImage: {fileID: 0}
+  upgradeText: {fileID: 0}
+  uiManager: {fileID: 0}
+  dmgSlider: {fileID: 0}
+  rpmSlider: {fileID: 0}
+  rangeSlider: {fileID: 0}
   upAtkDmg: 5
+  dis: 10
+  turretArray:
+  - {fileID: 5990797234418974562}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  buttonTextArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &972572590789148377
 GameObject:
   m_ObjectHideFlags: 0
