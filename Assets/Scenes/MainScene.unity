@@ -1688,6 +1688,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: fortress
+      value: 
+      objectReference: {fileID: 588840089}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: playerTr
       value: 
       objectReference: {fileID: 865181301}
@@ -1998,47 +2002,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3597775844629562242, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
-      propertyPath: m_Name
-      value: DmgButtonText
-      objectReference: {fileID: 0}
     - target: {fileID: 4342453284302819127, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 944556357}
-    - target: {fileID: 4405405204514471431, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
-      propertyPath: m_Name
-      value: RangeButtonText
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766985036116998608, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
-      propertyPath: m_Name
-      value: RpmButtonText
-      objectReference: {fileID: 0}
-    - target: {fileID: 5325700345450988239, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-    - target: {fileID: 5325700345450988239, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5459061712488703755, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-    - target: {fileID: 5459061712488703755, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5542305631359361684, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-    - target: {fileID: 5542305631359361684, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6187367693374674367, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 944556357}
+    - target: {fileID: 7246806639899275862, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 944556357}
@@ -2608,6 +2580,10 @@ PrefabInstance:
       propertyPath: dis
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: fortress
+      value: 
+      objectReference: {fileID: 588840089}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: playerTr
       value: 
@@ -3830,6 +3806,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: fortress
+      value: 
+      objectReference: {fileID: 588840089}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: playerTr
       value: 
       objectReference: {fileID: 865181301}
@@ -4259,6 +4239,10 @@ PrefabInstance:
       propertyPath: dis
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: fortress
+      value: 
+      objectReference: {fileID: 588840089}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: playerTr
       value: 
