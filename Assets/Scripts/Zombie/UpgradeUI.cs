@@ -47,9 +47,9 @@ public class UpgradeUI : MonoBehaviour
     private float maxRPM = 0.1f;
     private float maxRange = 50f;
 
-    private int dmgMoney = 500;
-    private int rpmMoney = 1000;
-    private int rangeMoney = 2000;
+    private int dmgMoney = 100;
+    private int rpmMoney = 200;
+    private int rangeMoney = 500;
     private int repairMoney = 500;
 
     private void Start()
