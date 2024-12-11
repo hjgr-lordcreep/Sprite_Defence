@@ -37,9 +37,6 @@ public class TurretAI : MonoBehaviour {
 
     private Transform lockOnPos;
 
-    public AudioClip turretFireSound;
-    private AudioSource turretAudioPlayer;
-
     //public TurretShoot_Base shotScript;
 
     public float AttackDamage { get { return attackDamage; } set { attackDamage = value; } }
@@ -61,8 +58,6 @@ public class TurretAI : MonoBehaviour {
         }
 
         randomRot = new Vector3(0, Random.Range(0, 359), 0);
-
-        turretAudioPlayer = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -224,7 +219,6 @@ public class TurretAI : MonoBehaviour {
                 missleGo.transform.SetParent(transform);
                 Projectile projectile = missleGo.GetComponent<Projectile>();
                 projectile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
-                turretAudioPlayer.PlayOneShot(turretFireSound);
             }
 
             shootLeft = !shootLeft;
