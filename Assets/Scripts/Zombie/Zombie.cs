@@ -37,6 +37,9 @@ public class Zombie : LivingEntity
     private Coroutine pathCoroutine;
     private Collider zombieCol = null;
 
+    [SerializeField]
+    private Fortress fortress = null;
+
     // 좀비가 활성화되면 좀비 액티브 카운터가 증가하는 이벤트 전달
     protected override void OnEnable()
     {
@@ -325,7 +328,7 @@ public class Zombie : LivingEntity
                 = other.GetComponent<LivingEntity>();
 
             // 상대방의 LivingEntity가 자신의 추적 대상이라면 공격 실행
-            if (attackTarget != null && attackTarget == targetEntity)
+            if (attackTarget != null && !other.CompareTag("Zombie"))
             {
                 // 공격 애니메이션 On
                 zombieAnimator.SetBool("Attack", true);

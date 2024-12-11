@@ -11,6 +11,7 @@ public class Fortress : LivingEntity
     public override float health { get; set; }
     protected override void OnEnable()
     {
+        if (startingHealth == fortressData.health) return;
         IsDead = true;
         startingHealth = fortressData.health;
         health = startingHealth;
@@ -22,6 +23,12 @@ public class Fortress : LivingEntity
     {
         UIManager.instance.GameOver();
 
+    }
+
+    public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal)
+    {
+        base.OnDamage(damage, hitPoint, hitNormal);
+        Debug.Log(health);
     }
 
 }
