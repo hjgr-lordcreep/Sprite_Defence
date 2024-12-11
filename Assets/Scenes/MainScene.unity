@@ -1870,10 +1870,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1661816526276575173, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661816526276575173, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970572217856019316, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970572217856019316, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2931156877297966780, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 944556357}
+    - target: {fileID: 3246725033192114586, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3450077104229462848, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
       propertyPath: m_Name
       value: UpgradeCanvas
@@ -1882,6 +1902,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 944556357}
+    - target: {fileID: 5715054390482419487, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715054390482419487, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028560558173742778, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028560558173742778, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 540
+      objectReference: {fileID: 0}
     - target: {fileID: 6187367693374674367, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
