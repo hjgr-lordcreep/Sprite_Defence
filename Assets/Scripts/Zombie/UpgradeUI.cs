@@ -49,8 +49,8 @@ public class UpgradeUI : MonoBehaviour
 
     private int dmgMoney = 100;
     private int rpmMoney = 200;
-    private int rangeMoney = 400;
-    private int repairMoney = 100;
+    private int rangeMoney = 500;
+    private int repairMoney = 500;
 
     private void Start()
     {
