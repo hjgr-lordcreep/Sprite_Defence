@@ -587,7 +587,6 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: 0354827da56f5da4a84349df3b2abe5c, type: 3}
   zombieData: {fileID: 11400000, guid: a9f285f35d3fae246baa6d5e90d29346, type: 2}
   timeBetAttack: 0.5
-  fortress: {fileID: 0}
 --- !u!54 &-1718913302988698135
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -628,7 +627,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
