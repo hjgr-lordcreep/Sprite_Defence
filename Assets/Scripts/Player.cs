@@ -21,8 +21,7 @@ public class Player : MonoBehaviour
             switch (item.type)
             {
                 case Item.Type.Coin:
-                    coin += item.value;
-                    UIManager.instance.money = coin;
+                    UIManager.instance.money += item.value;
                     UIManager.instance.moneyText.text = "money: " + UIManager.instance.money.ToString();
                     break;
                 case Item.Type.SpeedUp:
