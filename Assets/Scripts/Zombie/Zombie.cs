@@ -16,10 +16,10 @@ public class Zombie : LivingEntity
 
     public ParticleSystem hitEffect; // 피격시 재생할 파티클 효과
     //public AudioClip deathSound; // 사망시 재생할 소리
-    public AudioClip hitSound; // 피격시 재생할 소리
+    //public AudioClip hitSound; // 피격시 재생할 소리
 
     private Animator zombieAnimator; // 애니메이터 컴포넌트
-    private AudioSource zombieAudioPlayer; // 오디오 소스 컴포넌트
+    //private AudioSource zombieAudioPlayer; // 오디오 소스 컴포넌트
     //private Renderer zombieRenderer; // 렌더러 컴포넌트
 
 
@@ -98,7 +98,7 @@ public class Zombie : LivingEntity
         navMeshAgent = GetComponent<NavMeshAgent>();
         zombieAnimator = GetComponent<Animator>();
         zombieCol = GetComponent<Collider>();
-        zombieAudioPlayer = GetComponent<AudioSource>();
+        //zombieAudioPlayer = GetComponent<AudioSource>();
 
         // 렌더러 컴포넌트는 자식 게임 오브젝트에게 있으므로
         // GetComponentInChildren() 메서드를 사용
@@ -265,7 +265,7 @@ public class Zombie : LivingEntity
                 hitEffect.Play();
 
             // 피격 효과음 재생
-            zombieAudioPlayer.PlayOneShot(hitSound);
+            //zombieAudioPlayer.PlayOneShot(hitSound);
             
 
             // LivingEntity의 OnDamage()를 실행하여 데미지 적용
