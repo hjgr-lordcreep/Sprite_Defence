@@ -297,7 +297,7 @@ public class Zombie : LivingEntity
         base.Die();
         UIManager.instance.kill++;
         UIManager.instance.killText.text = UIManager.instance.kill.ToString();
-        Instantiate(coin, transform.position, Quaternion.Euler(90, 0, 0));
+        Instantiate(coin, transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(90, 0, 0));
 
         // 다른 AI들을 방해하지 않도록 자신의 모든 콜라이더들을 비활성화
         //Collider[] zombieColliders = GetComponents<Collider>();

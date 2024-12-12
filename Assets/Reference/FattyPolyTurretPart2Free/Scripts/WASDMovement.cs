@@ -54,7 +54,7 @@ public class WASDMovement : MonoBehaviour {
                 moveVec = new Vector3(haxis, 0, vaxis);
 
                 Vector3 moveRoVec = (rotation * moveVec).normalized;
-                if (CheckWall()) 
+                if (CheckWall(moveRoVec)) 
                     moveRoVec = Vector3.zero;
                 transform.position += moveRoVec * speed * Time.deltaTime;
             }
@@ -64,7 +64,7 @@ public class WASDMovement : MonoBehaviour {
             moveVec = new Vector3(haxis, 0, vaxis);
 
             Vector3 moveRoVec = (rotation * moveVec).normalized;
-            if (CheckWall())
+            if (CheckWall(moveRoVec))
                 moveRoVec = Vector3.zero;
             transform.position += moveRoVec * speed * Time.deltaTime;
         
@@ -72,7 +72,7 @@ public class WASDMovement : MonoBehaviour {
         }
     }
 
-    private bool CheckWall()
+    private bool CheckWall(Vector3 moveVec)
     {
         if (Physics.Raycast(transform.position, moveVec, out RaycastHit hit, 1f))
         {

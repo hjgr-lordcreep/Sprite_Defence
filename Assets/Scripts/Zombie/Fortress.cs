@@ -19,6 +19,11 @@ public class Fortress : LivingEntity
         //base.OnEnable();
     }
 
+    //private void Update()
+    //{
+    //    transform.position = Vector3.zero;
+    //}
+
     public override void Die()
     {
         UIManager.instance.GameOver();
@@ -35,7 +40,7 @@ public class Fortress : LivingEntity
     {
         if (health >= startingHealth) return;
 
-        health += 2000;
+        health += startingHealth/10;
     }
 
 }

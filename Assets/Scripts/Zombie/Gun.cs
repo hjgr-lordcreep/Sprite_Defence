@@ -93,7 +93,9 @@ public class Gun : MonoBehaviour
 
         // 레이캐스트(시작지점, 방향, 충돌 정보 컨테이너, 사정거리)
         if (Physics.Raycast(fireTransform.position,
-            fireTransform.forward, out hit, fireDistance/*, 1 << LayerMask.NameToLayer("Zombie")*/))
+            fireTransform.forward, out hit, fireDistance, 
+            1 << LayerMask.NameToLayer("Zombie")|
+            1<<LayerMask.NameToLayer("Fortress")))
         {
             // 레이가 어떤 물체와 충돌한 경우
 
@@ -108,19 +110,19 @@ public class Gun : MonoBehaviour
             {
                 // 상대방의 OnDamage 함수를 실행시켜서 상대방에게 데미지 주기
                 target.OnDamage(gunData.damage, hit.point, hit.normal);
-
+                // 레이가 충돌한 위치 저장
+                Vector3 dir = hit.transform.position - transform.position;
+                //Vector3 knockBackPos = other.transform.position * (-dir.normalized * knockBack);
+                Vector3 knockBackPos = hit.transform.position + (dir.normalized * knockBack);
+                knockBackPos.y = 0;
+                hit.transform.position = knockBackPos;
             }
             else
             {
                 Debug.Log("No hit detected");
             }
 
-            // 레이가 충돌한 위치 저장
-            Vector3 dir = hit.transform.position - transform.position;
-            //Vector3 knockBackPos = other.transform.position * (-dir.normalized * knockBack);
-            Vector3 knockBackPos = hit.transform.position + (dir.normalized * knockBack);
-            knockBackPos.y = 0;
-            hit.transform.position = knockBackPos;
+            
             hitPosition = hit.point;
         }
         else
