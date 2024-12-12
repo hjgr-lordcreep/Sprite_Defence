@@ -32,6 +32,7 @@ public class Item_Coin : MonoBehaviour
 
     private void Update()
     {
+        if (player == null) return;
         transform.Rotate(Vector3.forward);
         if (GetplayerPosition()) 
             CoinMove();
