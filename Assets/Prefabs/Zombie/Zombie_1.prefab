@@ -2351,7 +2351,7 @@ MonoBehaviour:
     m_Bits: 512
   targetEntity: {fileID: 0}
   hitEffect: {fileID: 2370680442118643901}
-  hitSound: {fileID: 8300000, guid: 0354827da56f5da4a84349df3b2abe5c, type: 3}
+  hitSound: {fileID: 8300000, guid: ed436d3dc2a69794897b1a59133c6b96, type: 3}
   zombieData: {fileID: 11400000, guid: cce332805e1549441b79a83f0ced1ebc, type: 2}
   timeBetAttack: 0.5
 --- !u!54 &5703994239630253374
@@ -2394,7 +2394,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
