@@ -256,7 +256,7 @@ MonoBehaviour:
   turnHead: {fileID: 6303924697027082840}
   attackDist: 12.5
   attackDamage: 25
-  shootCoolDown: 0.2
+  shootCoolDown: 0.4
   checkTargetTime: 0.1
   lockSpeed: 100
   checkTargetTr: {fileID: 3546976113681292930}
@@ -268,7 +268,6 @@ MonoBehaviour:
   muzzleSub: {fileID: 2838119814878454584}
   muzzleEff: {fileID: 1497772684437746, guid: bd75ef4ae186f454a90b2de71bed2854, type: 3}
   bullet: {fileID: 1773485284122676, guid: 9e0d59e1858a95d4aafcfc9ef7e94671, type: 3}
-  turretFireSound: {fileID: 8300000, guid: 39a208566d0e5f84dbdd74bb2ee2cf5f, type: 3}
 --- !u!114 &9152374239866863035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,8 +295,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 5990797234418974562}
+  - {fileID: 0}
   buttonTextArray:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

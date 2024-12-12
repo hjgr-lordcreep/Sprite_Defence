@@ -47,10 +47,10 @@ public class UpgradeUI : MonoBehaviour
     private float maxRPM = 0.1f;
     private float maxRange = 50f;
 
-    private int dmgMoney = 100;
-    private int rpmMoney = 200;
-    private int rangeMoney = 500;
-    private int repairMoney = 500;
+    private int dmgMoney = 200;
+    private int rpmMoney = 400;
+    private int rangeMoney = 1000;
+    private int repairMoney = 50;
 
     private void Start()
     {
@@ -59,14 +59,17 @@ public class UpgradeUI : MonoBehaviour
         rpmSlider.value = Mathf.Lerp(0, 1, maxRPM / turret.RPM);
         rangeSlider.value = Mathf.Lerp(0,1,turret.Range / maxRange);
 
-        buttonTextArray[0].text = dmgMoney + "G";
-        buttonTextArray[1].text = rpmMoney + "G";
-        buttonTextArray[2].text = rangeMoney + "G";
+
     }
 
     private void Update()
     {
         if (!playerTr.gameObject.activeSelf) return;
+
+        buttonTextArray[0].text = dmgMoney + "G";
+        buttonTextArray[1].text = rpmMoney + "G";
+        buttonTextArray[2].text = rangeMoney + "G";
+        buttonTextArray[3].text = repairMoney + "G";
 
         float curdis = Vector3.Distance(transform.position, playerTr.position);
 
@@ -159,6 +162,8 @@ public class UpgradeUI : MonoBehaviour
 
         dmgSlider.value = Mathf.Lerp(0, 1, turret.AttackDamage / maxDmg);
 
+        dmgMoney += 100;
+
         Debug.Log("Upgraded Attack Damage: " + turret.AttackDamage);
     }
 
@@ -176,6 +181,8 @@ public class UpgradeUI : MonoBehaviour
         UIManager.instance.moneyText.text = UIManager.instance.money.ToString();
 
         rpmSlider.value = Mathf.Lerp(0, 1, maxRPM / turret.RPM);
+
+        rpmMoney += 100;
 
         Debug.Log("Upgraded RPM: " + turret.RPM);
     }
@@ -196,6 +203,8 @@ public class UpgradeUI : MonoBehaviour
 
         rangeSlider.value = Mathf.Lerp(0, 1, turret.Range / maxRange);
 
+        rangeMoney += 100;
+
         Debug.Log("Upgraded Range: " + turret.Range);
     }
 
@@ -206,6 +215,9 @@ public class UpgradeUI : MonoBehaviour
         UIManager.instance.moneyText.text = UIManager.instance.money.ToString();
         fortress.Repair();
         Debug.Log(fortress.health);
+
+        repairMoney += 50;
+
         UIManager.instance.FortressHPUpdate();
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine.AI; // AI, 내비게이션 시스템 관련 코드를 가져오기
 public class Zombie : LivingEntity
 {
     public GameObject coin = null;
-    private float coinOffset = 0.5f;
 
     public GameObject HealthBar = null;
 
@@ -298,7 +297,7 @@ public class Zombie : LivingEntity
         base.Die();
         UIManager.instance.kill++;
         UIManager.instance.killText.text = UIManager.instance.kill.ToString();
-        Instantiate(coin, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.Euler(90, 0, 0));
+        Instantiate(coin, transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(90, 0, 0));
 
         // 다른 AI들을 방해하지 않도록 자신의 모든 콜라이더들을 비활성화
         //Collider[] zombieColliders = GetComponents<Collider>();
