@@ -12,6 +12,14 @@ public class Player : LivingEntity
 
     //public Vector3 position { get { return transform.position; } }
     public Vector3 position => transform.position;
+    private AudioSource coinSoundPlayer; // 코인 얻을 시 재생할 소리
+    public AudioClip coinSound;
+
+
+    private void Awake()
+    {
+        coinSoundPlayer = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,6 +29,7 @@ public class Player : LivingEntity
             switch (item.type)
             {
                 case Item.Type.Coin:
+                    coinSoundPlayer.PlayOneShot(coinSound);
                     UIManager.instance.money += item.value;
                     UIManager.instance.moneyText.text = UIManager.instance.money.ToString();
                     break;
