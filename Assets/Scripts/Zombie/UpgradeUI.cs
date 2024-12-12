@@ -52,13 +52,17 @@ public class UpgradeUI : MonoBehaviour
     private int rangeMoney = 300;
     private int repairMoney = 50;
 
-    private void Start()
+    private void Awake()
     {
         turret = GetComponent<TurretAI>();
         dmgSlider.value = Mathf.Lerp(0, 1, turret.AttackDamage / maxDmg);
         rpmSlider.value = Mathf.Lerp(0, 1, maxRPM / turret.RPM);
         rangeSlider.value = Mathf.Lerp(0,1,turret.Range / maxRange);
 
+        buttonTextArray[0].text = dmgMoney + "G";
+        buttonTextArray[1].text = rpmMoney + "G";
+        buttonTextArray[2].text = rangeMoney + "G";
+        buttonTextArray[3].text = repairMoney + "G";
 
     }
 
@@ -66,10 +70,7 @@ public class UpgradeUI : MonoBehaviour
     {
         if (!playerTr.gameObject.activeSelf) return;
 
-        buttonTextArray[0].text = dmgMoney + "G";
-        buttonTextArray[1].text = rpmMoney + "G";
-        buttonTextArray[2].text = rangeMoney + "G";
-        buttonTextArray[3].text = repairMoney + "G";
+
 
         float curdis = Vector3.Distance(transform.position, playerTr.position);
 
@@ -164,6 +165,9 @@ public class UpgradeUI : MonoBehaviour
 
         dmgMoney += 10;
 
+        buttonTextArray[0].text = dmgMoney + "G";
+
+
         Debug.Log("Upgraded Attack Damage: " + turret.AttackDamage);
     }
 
@@ -183,6 +187,9 @@ public class UpgradeUI : MonoBehaviour
         rpmSlider.value = Mathf.Lerp(0, 1, maxRPM / turret.RPM);
 
         rpmMoney += 10;
+
+        buttonTextArray[1].text = rpmMoney + "G";
+
 
         Debug.Log("Upgraded RPM: " + turret.RPM);
     }
@@ -205,6 +212,8 @@ public class UpgradeUI : MonoBehaviour
 
         rangeMoney += 20;
 
+        buttonTextArray[2].text = rangeMoney + "G";
+
         Debug.Log("Upgraded Range: " + turret.Range);
     }
 
@@ -217,6 +226,8 @@ public class UpgradeUI : MonoBehaviour
         Debug.Log(fortress.health);
 
         repairMoney += 50;
+
+        buttonTextArray[3].text = repairMoney + "G";
 
         UIManager.instance.FortressHPUpdate();
     }

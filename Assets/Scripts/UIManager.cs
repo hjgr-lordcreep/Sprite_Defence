@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public GameObject inGameUI;
     public GameObject endGameUI;
     public GameObject VictoryUI;
+    public GameObject upgradeUI;
 
     public Slider fortressSlider;
     public Fortress fortressHP;
@@ -64,6 +65,7 @@ public class UIManager : MonoBehaviour
 
         inGameUI.gameObject.SetActive(false);
         endGameUI.gameObject.SetActive(true);
+        upgradeUI.SetActive(false);
         Time.timeScale = 0;
 
 
@@ -143,6 +145,7 @@ public class UIManager : MonoBehaviour
         inGameUI.gameObject.SetActive(false);
         endGameUI.gameObject.SetActive(false);
         VictoryUI.gameObject.SetActive(true);
+        upgradeUI.SetActive(false);
         Time.timeScale = 0;
 
 
