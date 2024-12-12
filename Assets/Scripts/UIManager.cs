@@ -26,8 +26,11 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI killText;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI MainText;
+    public TextMeshProUGUI VictoryText;
     private float surviveTime;
     public bool isLive;
+
+    public float timeout = 180f;
 
     private void Awake()
     {
@@ -94,8 +97,9 @@ public class UIManager : MonoBehaviour
         //killText.text = "Kill: " + kill.ToString();
         //moneyText.text = "money: " + money.ToString();
 
-        
 
+        // 제한 시간을 넘을 경우 승리 텍스트 표시
+        Victory();
 
         //hpValueRatio = fortressHP.health / fortressHP.startingHealth;
         //fortressSlider.value = Mathf.Lerp(0, 1, hpValueRatio);
@@ -114,8 +118,25 @@ public class UIManager : MonoBehaviour
         //디버깅용
         if (Input.GetKeyDown(KeyCode.F10))
         {
-            SceneManager.LoadScene("MainScene");
+            Retry();
         }
     }
 
+    private void Victory()
+    {
+        if(surviveTime > timeout)
+        {
+            VictoryText.gameObject.SetActive(true);
+        }
+    }
+
+    private void Retry()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
+    private void Exit()
+    {
+        Application.Quit();
+    }
 }
