@@ -47,9 +47,9 @@ public class UpgradeUI : MonoBehaviour
     private float maxRPM = 0.1f;
     private float maxRange = 50f;
 
-    private int dmgMoney = 200;
-    private int rpmMoney = 400;
-    private int rangeMoney = 1000;
+    private int dmgMoney = 50;
+    private int rpmMoney = 100;
+    private int rangeMoney = 300;
     private int repairMoney = 50;
 
     private void Start()
@@ -150,7 +150,7 @@ public class UpgradeUI : MonoBehaviour
     public void UpgradeAttackDmg()
     {
         if (maxDmg <= turret.AttackDamage) return;
-        if (UIManager.instance.money <= dmgMoney) return;
+        if (UIManager.instance.money < dmgMoney) return;
 
         foreach (TurretAI turret in turretArray)
         {
@@ -162,7 +162,7 @@ public class UpgradeUI : MonoBehaviour
 
         dmgSlider.value = Mathf.Lerp(0, 1, turret.AttackDamage / maxDmg);
 
-        dmgMoney += 100;
+        dmgMoney += 10;
 
         Debug.Log("Upgraded Attack Damage: " + turret.AttackDamage);
     }
@@ -170,11 +170,11 @@ public class UpgradeUI : MonoBehaviour
     public void UpgradeRPM()
     {
         if (maxRPM >= turret.RPM) return;
-        if (UIManager.instance.money <= rpmMoney) return;
+        if (UIManager.instance.money < rpmMoney) return;
 
         foreach (TurretAI turret in turretArray)
         {
-            turret.RPM -= 0.01f;
+            turret.RPM -= 0.02f;
         }
 
         UIManager.instance.money -= rpmMoney;
@@ -182,7 +182,7 @@ public class UpgradeUI : MonoBehaviour
 
         rpmSlider.value = Mathf.Lerp(0, 1, maxRPM / turret.RPM);
 
-        rpmMoney += 100;
+        rpmMoney += 10;
 
         Debug.Log("Upgraded RPM: " + turret.RPM);
     }
@@ -190,7 +190,7 @@ public class UpgradeUI : MonoBehaviour
     public void UpgradeRange()
     {
         if (maxRange <= turret.Range) return;
-        if (UIManager.instance.money <= rangeMoney) return;
+        if (UIManager.instance.money < rangeMoney) return;
 
         foreach (TurretAI turret in turretArray)
         {
@@ -203,14 +203,14 @@ public class UpgradeUI : MonoBehaviour
 
         rangeSlider.value = Mathf.Lerp(0, 1, turret.Range / maxRange);
 
-        rangeMoney += 100;
+        rangeMoney += 20;
 
         Debug.Log("Upgraded Range: " + turret.Range);
     }
 
     public void Repair()
     {
-        if (UIManager.instance.money <= repairMoney) return;
+        if (UIManager.instance.money < repairMoney) return;
         UIManager.instance.money -= repairMoney;
         UIManager.instance.moneyText.text = UIManager.instance.money.ToString();
         fortress.Repair();

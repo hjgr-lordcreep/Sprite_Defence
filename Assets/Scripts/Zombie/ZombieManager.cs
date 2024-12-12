@@ -167,7 +167,7 @@ public class ZombieManager : MonoBehaviour
         }
         activeCoroutine = false;
         // 다음번 생성되는 좀비의 최대 수를 5늘림
-        MaxSpawnCount += 5;
+        MaxSpawnCount += 50;
         // 좀비 스폰후 좀비들의 가중치 변경
         IncreaseWeights();
     }

@@ -286,11 +286,11 @@ RectTransform:
   - {fileID: 1533113435}
   m_Father: {fileID: 1526180194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 120, y: 20}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 120, y: 6.6799927}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &65936365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2015,7 +2015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.9647059}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2145,10 +2145,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5990797234418974562, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
-      propertyPath: shootCoolDown
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: fortress
       value: 
@@ -2185,10 +2181,6 @@ PrefabInstance:
       propertyPath: upgradeCanvas
       value: 
       objectReference: {fileID: 1268815876}
-    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
-      propertyPath: 'turretArray.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1732038608}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: 'turretArray.Array.data[1]'
       value: 
@@ -3192,7 +3184,7 @@ MonoBehaviour:
   - {fileID: 2169889334117703156, guid: a9eeaf48e231894429550074e6f773db, type: 3}
   - {fileID: 7201817330795786800, guid: 0580311a47e76c142ba535632167b9d8, type: 3}
   - {fileID: 6476567082596928114, guid: d210775376f3a484da17bd72b63c1f3d, type: 3}
-  weights: 010000001e0000004500000084030000
+  weights: 020000001e0000004400000084030000
   zombieList: []
   MaxSpawnCount: 100
   highWeightValue: 85
@@ -3646,10 +3638,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5990797234418974562, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
-      propertyPath: shootCoolDown
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: fortress
       value: 
@@ -3690,10 +3678,6 @@ PrefabInstance:
       propertyPath: 'turretArray.Array.data[0]'
       value: 
       objectReference: {fileID: 1732038608}
-    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
-      propertyPath: 'turretArray.Array.data[1]'
-      value: 
-      objectReference: {fileID: 870981298}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: 'turretArray.Array.data[2]'
       value: 
@@ -4749,6 +4733,7 @@ MonoBehaviour:
   killText: {fileID: 78248556}
   timeText: {fileID: 68131491}
   MainText: {fileID: 333079580}
+  VictoryText: {fileID: 0}
   isLive: 0
   timeout: 180
 --- !u!4 &1662968146
@@ -5165,10 +5150,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5990797234418974562, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
-      propertyPath: shootCoolDown
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: fortress
       value: 
@@ -5217,10 +5198,6 @@ PrefabInstance:
       propertyPath: 'turretArray.Array.data[2]'
       value: 
       objectReference: {fileID: 1544414751}
-    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
-      propertyPath: 'turretArray.Array.data[3]'
-      value: 
-      objectReference: {fileID: 944556358}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: 'buttonTextArray.Array.data[0]'
       value: 
@@ -5535,10 +5512,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5990797234418974562, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
-      propertyPath: shootCoolDown
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: fortress
       value: 
@@ -5583,10 +5556,6 @@ PrefabInstance:
       propertyPath: 'turretArray.Array.data[1]'
       value: 
       objectReference: {fileID: 870981298}
-    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
-      propertyPath: 'turretArray.Array.data[2]'
-      value: 
-      objectReference: {fileID: 1544414751}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: 'turretArray.Array.data[3]'
       value: 
