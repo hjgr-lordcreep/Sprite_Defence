@@ -8,6 +8,20 @@ public class Item_Coin : MonoBehaviour
 
     public GameObject player;
 
+
+    private float p_position_x;
+    private float p_position_z;
+    private bool GetplayerPosition()
+    {
+        p_position_x = player.transform.position.x;
+        p_position_z = player.transform.position.z;
+
+        if( Mathf.Abs(p_position_x) > 10 || Mathf.Abs(p_position_z) > 10)
+            return true;
+        return false;
+    }
+
+
     private void Start()
     {
         if (player == null)
@@ -18,6 +32,7 @@ public class Item_Coin : MonoBehaviour
 
     private void Update()
     {
+        if (GetplayerPosition()) return;
         CoinMove();
     }
     public void CoinMove()
