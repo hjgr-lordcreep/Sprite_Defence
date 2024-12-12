@@ -37,6 +37,8 @@ public class Zombie : LivingEntity
     private Coroutine pathCoroutine;
     private Collider zombieCol = null;
 
+    private Vector3 deadPosition = Vector3.zero;
+
     // 좀비가 활성화되면 좀비 액티브 카운터가 증가하는 이벤트 전달
     protected override void OnEnable()
     {
@@ -288,6 +290,8 @@ public class Zombie : LivingEntity
         navMeshAgent.updateRotation = false;
         navMeshAgent.velocity = Vector3.zero;
 
+
+        deadPosition = transform.position;
         Invoke("DelayedDie", 2f);
     }
 
@@ -297,7 +301,7 @@ public class Zombie : LivingEntity
         base.Die();
         UIManager.instance.kill++;
         UIManager.instance.killText.text = UIManager.instance.kill.ToString();
-        Instantiate(coin, transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(90, 0, 0));
+        Instantiate(coin, deadPosition + new Vector3(0, 0.5f, 0), Quaternion.Euler(90, 0, 0));
 
         // 다른 AI들을 방해하지 않도록 자신의 모든 콜라이더들을 비활성화
         //Collider[] zombieColliders = GetComponents<Collider>();
