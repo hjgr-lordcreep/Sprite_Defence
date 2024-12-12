@@ -493,7 +493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &68791359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4733,9 +4733,8 @@ MonoBehaviour:
   killText: {fileID: 78248556}
   timeText: {fileID: 68131491}
   MainText: {fileID: 333079580}
-  VictoryText: {fileID: 0}
   isLive: 0
-  timeout: 180
+  timeout: 10
 --- !u!4 &1662968146
 Transform:
   m_ObjectHideFlags: 0
@@ -5042,7 +5041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1847458069
 RectTransform:
   m_ObjectHideFlags: 0
