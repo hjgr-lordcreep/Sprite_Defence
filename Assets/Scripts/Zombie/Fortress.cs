@@ -40,7 +40,7 @@ public class Fortress : LivingEntity
     {
         if (health >= startingHealth) return;
 
-        health += startingHealth/10;
+        health += startingHealth/3;
     }
 
 }
