@@ -2040,6 +2040,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497635731}
   m_CullTransparentMesh: 1
+--- !u!1 &529165655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3450077104229462848, guid: 2f49a07ca180a7948a5259ee49a9504e, type: 3}
+  m_PrefabInstance: {fileID: 764334830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &562419958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,6 +2186,10 @@ PrefabInstance:
       propertyPath: upgradeCanvas
       value: 
       objectReference: {fileID: 1268815876}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: 'turretArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1732038608}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: 'turretArray.Array.data[1]'
       value: 
@@ -3679,6 +3688,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1732038608}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: 'turretArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 870981298}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: 'turretArray.Array.data[2]'
       value: 
       objectReference: {fileID: 1544414751}
@@ -3833,13 +3846,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323354559}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.6532815, y: -0.27059805, z: 0.27059805, w: 0.6532815}
   m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -45, z: 0}
 --- !u!1 &1401327176
 GameObject:
   m_ObjectHideFlags: 0
@@ -4727,6 +4740,7 @@ MonoBehaviour:
   inGameUI: {fileID: 1526180193}
   endGameUI: {fileID: 49017689}
   VictoryUI: {fileID: 1847458068}
+  upgradeUI: {fileID: 529165655}
   fortressSlider: {fileID: 65936365}
   fortressHP: {fileID: 588840089}
   moneyText: {fileID: 1419573198}
@@ -5555,6 +5569,10 @@ PrefabInstance:
       propertyPath: 'turretArray.Array.data[1]'
       value: 
       objectReference: {fileID: 870981298}
+    - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
+      propertyPath: 'turretArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1544414751}
     - target: {fileID: 9152374239866863035, guid: 91a8482d04673784ab1c5ee7a423eb89, type: 3}
       propertyPath: 'turretArray.Array.data[3]'
       value: 
