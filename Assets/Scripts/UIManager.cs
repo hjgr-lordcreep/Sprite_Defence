@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     public GameObject startGameUI;
     public GameObject inGameUI;
     public GameObject endGameUI;
+    public GameObject VictoryUI;
 
     public Slider fortressSlider;
     public Fortress fortressHP;
@@ -26,11 +27,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI killText;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI MainText;
-    public TextMeshProUGUI VictoryText;
     private float surviveTime;
     public bool isLive;
 
-    public float timeout = 180f;
+    public int timeout = 10;
 
     private void Awake()
     {
@@ -93,13 +93,19 @@ public class UIManager : MonoBehaviour
         if (!isLive) return;
         
         surviveTime += Time.deltaTime;
+        //Debug.Log(surviveTime);
+        //timeout -= surviveTime;
         timeText.text = "Time : " + surviveTime.ToString("F1");
         //killText.text = "Kill: " + kill.ToString();
         //moneyText.text = "money: " + money.ToString();
 
 
         // 제한 시간을 넘을 경우 승리 텍스트 표시
-        Victory();
+        if ((int)surviveTime >= timeout)
+        {
+            Debug.Log(timeout);
+            Victory();
+        }
 
         //hpValueRatio = fortressHP.health / fortressHP.startingHealth;
         //fortressSlider.value = Mathf.Lerp(0, 1, hpValueRatio);
@@ -124,18 +130,31 @@ public class UIManager : MonoBehaviour
 
     private void Victory()
     {
-        if(surviveTime > timeout)
-        {
-            VictoryText.gameObject.SetActive(true);
-        }
+        StartCoroutine(VictoryRoutine());
     }
+
+    IEnumerator VictoryRoutine()
+    {
+        isLive = false;
+
+        yield return new WaitForSeconds(1f);
+
+
+        inGameUI.gameObject.SetActive(false);
+        endGameUI.gameObject.SetActive(false);
+        VictoryUI.gameObject.SetActive(true);
+        Time.timeScale = 0;
+
+
+    }
+
 
     private void Retry()
     {
         SceneManager.LoadScene("MainScene");
     }
 
-    private void Exit()
+    public void Exit()
     {
         Application.Quit();
     }

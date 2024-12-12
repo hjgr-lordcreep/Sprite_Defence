@@ -1037,7 +1037,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1662968145}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: GameRetry
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1345,7 +1345,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1662968145}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: GameRetry
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4742,6 +4742,7 @@ MonoBehaviour:
   startGameUI: {fileID: 68791358}
   inGameUI: {fileID: 1526180193}
   endGameUI: {fileID: 49017689}
+  VictoryUI: {fileID: 1847458068}
   fortressSlider: {fileID: 65936365}
   fortressHP: {fileID: 588840089}
   moneyText: {fileID: 1419573198}
@@ -4749,6 +4750,7 @@ MonoBehaviour:
   timeText: {fileID: 68131491}
   MainText: {fileID: 333079580}
   isLive: 0
+  timeout: 180
 --- !u!4 &1662968146
 Transform:
   m_ObjectHideFlags: 0
