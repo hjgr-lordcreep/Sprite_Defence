@@ -4748,7 +4748,7 @@ MonoBehaviour:
   timeText: {fileID: 68131491}
   MainText: {fileID: 333079580}
   isLive: 0
-  timeout: 10
+  timeout: 180
 --- !u!4 &1662968146
 Transform:
   m_ObjectHideFlags: 0
